@@ -1,0 +1,30 @@
+.nav {
+    background-color: $blue-light3;
+}
+
+.nav__holder {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    max-width: 200px;
+}
+
+.nav__logo-img {
+    width: 100%;
+}
+
+.nav__inner {
+    display: flex;
+}
+
+.nav__list {
+    display: flex;
+}
+
+.nav__controls {
+    display: flex;
+}
