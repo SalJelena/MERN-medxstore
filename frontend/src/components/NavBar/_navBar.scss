@@ -1,5 +1,6 @@
 .nav {
     background-color: $blue-light3;
+    padding: 10px 0;
 }
 
 .nav__holder {
@@ -27,7 +28,7 @@
     position: relative;
     height: 100%;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         position: unset;
     }
 }
@@ -38,7 +39,7 @@
     margin-right: 20px;
     height: 100%;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         visibility: hidden;
         flex-direction: column;
         align-items: flex-start;
@@ -46,14 +47,15 @@
         opacity: 0;
         height: 100vh;
         position: absolute;
-        background-color: rgba($blue-light3, 0.7);
-        top: 60px;
+        background-color: rgba($white, 0.4);
+        top: 0;
         bottom: 0;
         right: -400px;
         width: 400px;
         margin-right: 0;
         text-align: right;
-        padding-top: 30px;
+        padding-top: 100px;
+        padding-left: 40px;
         transition: 0.3s ease-in;
     }
 }
@@ -64,10 +66,11 @@
     right: 0;
 }
 
+
 .nav__menu-mobile {
     display: none;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         display: block;
     }
 }
@@ -78,7 +81,6 @@
     display: flex;
     align-items: center;
 
-    @include media-breakpoint-up(lg) {
         &:hover {
             .nav__link {
                 color: $yellow;
@@ -89,10 +91,21 @@
                 opacity: 1;
             }
         }
-    }
 
-    @include media-breakpoint-down(md) {
+
+    @include media-breakpoint-down(lg) {
         margin-bottom: 15px;
+
+        &:hover {
+            .nav__link {
+                color: $blue-dark2;
+            }
+    
+            .nav__dropdown {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
     }
 }
 
@@ -131,7 +144,7 @@
     left: 0;
     transition: 0.3s ease;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         position: relative;
         width: 100%;
         top: unset;
@@ -243,6 +256,7 @@
 
 .nav__controls {
     display: flex;
+    z-index: 5;
 }
 
 .nav__control {

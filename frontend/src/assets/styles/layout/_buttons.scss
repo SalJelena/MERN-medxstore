@@ -22,23 +22,36 @@ button {
 }
 
 .button {
-    font-family: 'Poppins', sans-serif;
+    font-family: $font-default;
     font-weight: 600;
     font-size: 12px;
     padding: 12px 43px;
     text-transform: uppercase;
-    transition: all 1s ease 0s;
     display: inline-block;
+    border-radius: 5px;
+    transition: 0.4s ease;
 }
 
 .button--primary {
-    background-color: $blue;
-    border: 1px solid $blue;
+    color: $white;
+    background: linear-gradient(180deg, $main-color-mix 0%, $main-color 100%);
+    
+
+    &:hover {
+        background: linear-gradient(180deg, $main-color-mix2 0%, $main-color-mix 100%);
+        box-shadow: 0px 8px 10px rgba(121, 99, 104, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.button--link {
+    border: 1px solid $white;
+    border-radius: 5px;
+    line-height: 48px;
+    padding: 0 30px;
     color: $white;
 
     &:hover {
-        background-color: transparent;
-        border: 1px solid $blue;
-        color: $green;
+        border-color: $main-color;
+        color: $main-color;
     }
 }

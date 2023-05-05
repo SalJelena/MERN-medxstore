@@ -4,12 +4,14 @@ import { MdSearch, MdShoppingCart } from "react-icons/md";
 import { BsFillPersonFill, BsList } from "react-icons/bs";
 import NavItems from "./NavItems";
 import { useState } from "react";
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const NavBar = () => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
 
   const handleMobileMenu = () => {
     !mobileMenuVisible ? setMobileMenuVisible(true) : setMobileMenuVisible(false)
+    !mobileMenuVisible ? disableBodyScroll(document) : enableBodyScroll(document)
   }
 
   return (
