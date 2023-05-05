@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import logoImg from "../../assets/images/logo-no-bg.png";
 import { MdSearch, MdShoppingCart } from "react-icons/md";
-import { BsFillPersonFill } from "react-icons/bs";
+import { BsFillPersonFill, BsList } from "react-icons/bs";
 import NavItems from "./NavItems";
+import { useState } from "react";
 
 const NavBar = () => {
+  const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
+
+  const handleMobileMenu = () => {
+    !mobileMenuVisible ? setMobileMenuVisible(true) : setMobileMenuVisible(false)
+  }
+
   return (
     <nav className="nav">
       <div className="wrap nav__holder ">
@@ -16,7 +23,7 @@ const NavBar = () => {
           />
         </Link>
         <div className="nav__inner">
-          <NavItems />
+          <NavItems onMobileMenu={mobileMenuVisible} />
           <div className="nav__controls">
             <div className="nav__control">
               <button type="button" className="nav__search">
@@ -31,6 +38,11 @@ const NavBar = () => {
             <div className="nav__control">
               <button type="button" className="nav__cart">
                 <MdShoppingCart />
+              </button>
+            </div>
+            <div className="nav__control">
+              <button className="nav__menu-mobile" onClick={handleMobileMenu}>
+                  <BsList />
               </button>
             </div>
           </div>
