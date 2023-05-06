@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { QUICK_LINKS, MORE_INFO_LINKS, SOCIAL_LINKS } from "./footerData";
+import { GoLocation } from "react-icons/go";
+import { BiCopyright } from "react-icons/bi";
 
 const Footer = () => {
   const renderedQuickLinks = () => {
@@ -34,7 +36,7 @@ const Footer = () => {
   const renderedSocial = () => {
     return SOCIAL_LINKS.map((el, index) => {
       return (
-        <a href={el.url} key={index} className="footer__social-icon">
+        <a href={el.link} key={index} className="footer__social-icon">
           {el.icon}
         </a>
       );
@@ -70,12 +72,16 @@ const Footer = () => {
 
         <div className="footer__bottom">
           <a href="/" className="footer__copy">
+            <span className="footer__copy-icon"><GoLocation /></span>
             <span>600 N Washington Ave Suite C203, Minneapolis, MN 55401</span>
           </a>
-          <div className="footer__copy">
-            <span>Copyright 2023, Hook BZOTech</span>
+          <a href="/" className="footer__copy">
+            <span className="footer__copy-icon"><BiCopyright /></span>
+            <span>Copyright 2023, Jelena Salopek</span>
+          </a>
+          <div className="footer__social">
+            {renderedSocial()}
           </div>
-          <div className="footer__social">{renderedSocial()}</div>
         </div>
       </div>
     </div>

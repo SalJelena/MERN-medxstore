@@ -11,7 +11,7 @@ const ProductSchema = new mongoose.Schema({
     brand: {type: mongoose.Schema.Types.ObjectId, required: true},
     category: {type: mongoose.Schema.Types.ObjectId, required: true},
     images: {type: Array, default: []},
-    keyPoints: {type: Array, default: []}
+    details: {type: Array, default: []},
 })
 
 const ProductModel = mongoose.model("products", ProductSchema)

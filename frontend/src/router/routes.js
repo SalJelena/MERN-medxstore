@@ -1,24 +1,96 @@
 export const routes = {
   HOME: { path: "/", name: "Home" },
   SHOP: { 
-    path: "/shop", 
+    path: "/products/all", 
     name: "Shop",
     subitem: [
         {
             path: "/shop",
-            name: "Dolor sit amet"
+            name: "Dolor sit amet",
+            innerItems: [
+                {
+                    path: "/shop",
+                    name: "Ipsum Leanus"
+                },
+                {
+                    path: "/shop",
+                    name: "Misc aliq"
+                },
+                {
+                    path: "/shop",
+                    name: "Pills alim"
+                },
+                {
+                    path: "/shop",
+                    name: "Lorem misc"
+                },
+            ]
         },
         {
             path: "/shop",
-            name: "Lorem ipsum amet"
+            name: "Lorem ipsum amet",
+            innerItems: [
+                {
+                    path: "/shop",
+                    name: "Ipsum Leanus"
+                },
+                {
+                    path: "/shop",
+                    name: "Misc aliq"
+                },
+                {
+                    path: "/shop",
+                    name: "Pills alim"
+                },
+                {
+                    path: "/shop",
+                    name: "Lorem misc"
+                },
+            ]
         },
         {
             path: "/shop",
-            name: "Aliquam commodo"
+            name: "Aliquam commodo",
+            innerItems: [
+                {
+                    path: "/shop",
+                    name: "Ipsum Leanus"
+                },
+                {
+                    path: "/shop",
+                    name: "Misc aliq"
+                },
+                {
+                    path: "/shop",
+                    name: "Pills alim"
+                },
+                {
+                    path: "/shop",
+                    name: "Lorem misc"
+                },
+            ]
         },
         {
             path: "/shop",
-            name: "Misc A Leanaus"
+            name: "Misc A Leanaus",
+            innerItems: [
+                {
+                    path: "/shop",
+                    name: "Ipsum Leanus"
+                },
+                {
+                    path: "/shop",
+                    name: "Misc aliq"
+                },
+                {
+                    path: "/shop",
+                    name: "Pills alim"
+                },
+                {
+                    path: "/shop",
+                    name: "Lorem misc"
+                },
+            ]
         }
     ]
  },
