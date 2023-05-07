@@ -4,8 +4,9 @@ import {Link} from "react-router-dom";
 import {AiOutlineHeart} from "react-icons/ai";
 
 const ProductCard = ({ product }) => {
+
   return (
-    <Link to={"/product/" + product._id} className='product__card card'>
+    <Link to={`/products/${product._id}`} className='product__card card'>
       <div className='card__img-holder'>
         <div className='card__img' style={{ backgroundImage: "url(" + product.thumbnail + ")" }}></div>
       </div>

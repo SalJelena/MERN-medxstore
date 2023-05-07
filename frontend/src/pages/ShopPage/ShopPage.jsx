@@ -36,7 +36,7 @@ const ShopPage = () => {
       <div className="wrap">
         <div className="shop__inner">
           <ProductsView products={products} />
-            <Pagination setSearchParams={setSearchParams} limit={limit} page={page} count={count} />
+          <Pagination setSearchParams={setSearchParams} limit={limit} page={page} count={count} />
         </div>
       </div>
     </div>

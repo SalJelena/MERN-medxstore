@@ -12,6 +12,7 @@ const ProductSchema = new mongoose.Schema({
     category: {type: mongoose.Schema.Types.ObjectId, required: true},
     images: {type: Array, default: []},
     details: {type: Array, default: []},
+    isTrending: {type: Boolean, default: false}
 })
 
 const ProductModel = mongoose.model("products", ProductSchema)

@@ -1,5 +1,9 @@
 export const routes = {
   HOME: { path: "/", name: "Home" },
+  PRODUCT_DETAIL: {
+      path: "/products/:id",
+      realPath: (id) => "/products/" + id
+  },
   SHOP: { 
     path: "/products/all", 
     name: "Shop",

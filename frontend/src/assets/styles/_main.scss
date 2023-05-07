@@ -35,5 +35,8 @@
 @import "../../components/ProductsView/productsView";
 @import "../../components/ProductCard/productCard";
 @import "../../components/Pagination/pagination";
-// @import 'modules/homePage';
-// @import 'modules/cookie';
+@import "../../components/Heading/heading";
+@import "../../components/ProductDetails/productDetails";
+
+//#Pages-------------------------------------------------------------- */
+@import "../../pages/SingleProductPage/singleProductPage";

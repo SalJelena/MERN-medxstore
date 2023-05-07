@@ -1,158 +1,5 @@
 [
     {
-      "title": "Eucerin Sun Transparent",
-      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat",
-      "price": 249,
-      "discountPercentage": 15,
-      "rating": 4.09,
-      "stock": 36,
-      "brand": "6456221562ccc64eca70352b",
-      "category": "6456224ba1c8a0c3da94cc62",
-      "thumbnail": "https://i.postimg.cc/R08qMQhs/df48f6159259543-639ada668fe01.jpg",
-      "images": [
-        "https://i.postimg.cc/htYKx4nh/23570832-m010t197-medicine-bottle-02.jpg",
-        "https://i.postimg.cc/6QGths6c/3576423-65885.jpg",
-        "https://i.postimg.cc/RFFqmpvn/4c8ab5123141607-60e818bfb4218.jpg"
-      ],
-      "details": [
-        "DPI Selection: 2600/2000/1600/1200/800",
-        "Lorem Ipsum Dolor Sit Ame",
-        "Dignissim Qui Blandit",
-        "Sed Diam Nonummy Nibh Euismod"
-      ]
-    },
-    {
-      "title": "Diclofenac Oaifarm Tablet",
-      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat",
-      "price": 30,
-      "discountPercentage":17,
-      "rating": 4.3,
-      "stock": 123,
-      "brand": "6456221562ccc64eca70352c",
-      "category": "6456224ba1c8a0c3da94cc63",
-      "thumbnail": "https://i.postimg.cc/T2KqqCnw/45b5ab159259543-639ada64816b8.jpg",
-      "images": [
-        "https://i.postimg.cc/htYKx4nh/23570832-m010t197-medicine-bottle-02.jpg",
-        "https://i.postimg.cc/6QGths6c/3576423-65885.jpg",
-        "https://i.postimg.cc/RFFqmpvn/4c8ab5123141607-60e818bfb4218.jpg"
-      ],
-      "details": [
-        "DPI Selection: 2600/2000/1600/1200/800",
-        "Lorem Ipsum Dolor Sit Ame",
-        "Dignissim Qui Blandit",
-        "Sed Diam Nonummy Nibh Euismod"
-      ]
-    },
-    {
-      "title": "Itaque earum rerum hic",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "price": 150,
-      "discountPercentage": 30,
-      "rating": 4.0,
-      "stock": 125,
-      "brand": "6456221562ccc64eca70352b",
-      "category": "6456224ba1c8a0c3da94cc63",
-      "thumbnail": "https://i.postimg.cc/MKR7gHPJ/90bb19163189607-63e20d6e2fe45.jpg",
-      "images": [
-        "https://i.postimg.cc/k4bGD6tn/b8d3b0163189607-63e20d6e2f2ef.jpg",
-        "https://i.postimg.cc/bN2Dd5kx/8c2595163189607-63e20d6e2e5f3.jpg"
-      ],
-      "details": [
-        "DPI Selection: 2600/2000/1600/1200/800",
-        "Lorem Ipsum Dolor Sit Ame",
-        "Dignissim Qui Blandit",
-        "Sed Diam Nonummy Nibh Euismod"
-      ]
-    },
-    {
-      "title": "Lauder Idealist Pore Minimizing",
-      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
-      "price": 267,
-      "discountPercentage": 25,
-      "rating": 4.5,
-      "stock": 160,
-      "brand": "6456221562ccc64eca70352b",
-      "category": "6456224ba1c8a0c3da94cc62",
-      "thumbnail": "https://i.postimg.cc/DZHGM31z/807a5d159259543-639ada6270ad0.jpg",
-      "images": [
-        "https://i.postimg.cc/htYKx4nh/23570832-m010t197-medicine-bottle-02.jpg",
-        "https://i.postimg.cc/6QGths6c/3576423-65885.jpg",
-        "https://i.postimg.cc/RFFqmpvn/4c8ab5123141607-60e818bfb4218.jpg"
-      ],
-      "details": [
-        "DPI Selection: 2600/2000/1600/1200/800",
-        "Lorem Ipsum Dolor Sit Ame",
-        "Dignissim Qui Blandit",
-        "Sed Diam Nonummy Nibh Euismod"
-      ]
-    },
-    {
-      "title": "Loratadine Ratiopharm Tablet",
-      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "price": 345,
-      "discountPercentage": 15,
-      "rating": 4.8,
-      "stock": 50,
-      "brand": "6456221562ccc64eca70352d",
-      "category": "6456224ba1c8a0c3da94cc62",
-      "thumbnail": "https://i.postimg.cc/Bn4KygP2/b3b358124313605-610166f212237.jpg",
-      "images": [
-        "https://i.postimg.cc/htYKx4nh/23570832-m010t197-medicine-bottle-02.jpg",
-        "https://i.postimg.cc/6QGths6c/3576423-65885.jpg",
-        "https://i.postimg.cc/RFFqmpvn/4c8ab5123141607-60e818bfb4218.jpg"
-      ],
-      "details": [
-        "DPI Selection: 2600/2000/1600/1200/800",
-        "Lorem Ipsum Dolor Sit Ame",
-        "Dignissim Qui Blandit",
-        "Sed Diam Nonummy Nibh Euismod"
-      ]
-    },
-    {
-      "title": "Nemo enim ipsam",
-      "description": "Arcu dui vivamus arcu felis bibendum ut. Bibendum neque egestas congue quisque egestas diam in. Nunc eget lorem dolor sed viverra ipsum nunc.",
-      "price": 95,
-      "discountPercentage": 0,
-      "rating": 4.35,
-      "stock": 125,
-      "brand": "6456221562ccc64eca70352d",
-      "category": "6456224ba1c8a0c3da94cc61",
-      "thumbnail": "https://i.postimg.cc/fWSm0khS/58046d159259543-639ada68b2944.jpg",
-      "images": [
-        "https://i.postimg.cc/htYKx4nh/23570832-m010t197-medicine-bottle-02.jpg",
-        "https://i.postimg.cc/6QGths6c/3576423-65885.jpg",
-        "https://i.postimg.cc/RFFqmpvn/4c8ab5123141607-60e818bfb4218.jpg"
-      ],
-      "details": [
-        "DPI Selection: 2600/2000/1600/1200/800",
-        "Lorem Ipsum Dolor Sit Ame",
-        "Dignissim Qui Blandit",
-        "Sed Diam Nonummy Nibh Euismod"
-      ]
-    },
-    {
-      "title": "Officiis debitis aut rerum",
-      "description": "Libero volutpat sed cras ornare arcu dui vivamus arcu felis.",
-      "price": 80,
-      "discountPercentage": 10,
-      "rating": 4.6,
-      "stock": 5,
-      "brand": "6456221562ccc64eca70352e",
-      "category": "6456224ba1c8a0c3da94cc61",
-      "thumbnail": "https://i.postimg.cc/L8L1QWs9/5fa676124670647-61093592b2f75.jpg",
-      "images": [
-        "https://i.postimg.cc/bvY1GTzq/817b2e124670647-61093059d1a83.jpg",
-        "https://i.postimg.cc/6QGths6c/3576423-65885.jpg",
-        "https://i.postimg.cc/RFFqmpvn/4c8ab5123141607-60e818bfb4218.jpg"
-      ],
-      "details": [
-        "DPI Selection: 2600/2000/1600/1200/800",
-        "Lorem Ipsum Dolor Sit Ame",
-        "Dignissim Qui Blandit",
-        "Sed Diam Nonummy Nibh Euismod"
-      ]
-    },
-    {
       "title": "Pamol Film Coated Tablet",
       "description": "Vel eros donec ac odio tempor orci dapibus ultrices in. In hendrerit gravida rutrum quisque non.",
       "price": 120,
@@ -172,7 +19,8 @@
         "Lorem Ipsum Dolor Sit Ame",
         "Dignissim Qui Blandit",
         "Sed Diam Nonummy Nibh Euismod"
-      ]
+      ],
+      "isTrending": true
     },
     {
       "title": "Malix Natural Gel 100 ml",
@@ -194,7 +42,8 @@
         "Lorem Ipsum Dolor Sit Ame",
         "Dignissim Qui Blandit",
         "Sed Diam Nonummy Nibh Euismod"
-      ]
+      ],
+      "isTrending": true
     },
     {
       "title": "Minus id quod maxime",
@@ -216,7 +65,8 @@
         "Lorem Ipsum Dolor Sit Ame",
         "Dignissim Qui Blandit",
         "Sed Diam Nonummy Nibh Euismod"
-      ]
+      ],
+      "isTrending": true
     },
     {
       "title": "Quae ab illo inventore",
@@ -238,7 +88,8 @@
         "Lorem Ipsum Dolor Sit Ame",
         "Dignissim Qui Blandit",
         "Sed Diam Nonummy Nibh Euismod"
-      ]
+      ],
+      "isTrending": false
     },
     {
       "title": "Qui dolorem ipsum quia",
@@ -260,7 +111,8 @@
         "Lorem Ipsum Dolor Sit Ame",
         "Dignissim Qui Blandit",
         "Sed Diam Nonummy Nibh Euismod"
-      ]
+      ],
+      "isTrending": true
     },
     {
       "title": "Quibinos Natural Gel 100 ml",
@@ -282,7 +134,8 @@
         "Lorem Ipsum Dolor Sit Ame",
         "Dignissim Qui Blandit",
         "Sed Diam Nonummy Nibh Euismod"
-      ]
+      ],
+      "isTrending": false
     },
     {
       "title": "Similique sunt in culpa",
@@ -304,28 +157,7 @@
         "Lorem Ipsum Dolor Sit Ame",
         "Dignissim Qui Blandit",
         "Sed Diam Nonummy Nibh Euismod"
-      ]
-    },
-    {
-      "title": "Temporibus autem quibus",
-      "description": "Viverra justo nec ultrices dui sapien eget. Aliquam ut porttitor leo a diam sollicitudin.",
-      "price": 50,
-      "discountPercentage": 15,
-      "rating": 5.0,
-      "stock": 16,
-      "brand": "6456221562ccc64eca70352c",
-      "category": "6456224ba1c8a0c3da94cc63",
-      "thumbnail": "https://i.postimg.cc/D0SWrjDK/4e5ca8159259543-639ada606f7fc.jpg",
-      "images": [
-        "https://i.postimg.cc/htYKx4nh/23570832-m010t197-medicine-bottle-02.jpg",
-        "https://i.postimg.cc/6QGths6c/3576423-65885.jpg",
-        "https://i.postimg.cc/RFFqmpvn/4c8ab5123141607-60e818bfb4218.jpg"
       ],
-      "details": [
-        "DPI Selection: 2600/2000/1600/1200/800",
-        "Lorem Ipsum Dolor Sit Ame",
-        "Dignissim Qui Blandit",
-        "Sed Diam Nonummy Nibh Euismod"
-      ]
+      "isTrending": false
     }
 ]
