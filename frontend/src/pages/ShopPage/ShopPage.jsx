@@ -14,7 +14,15 @@ const ShopPage = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  return <ProductsView products={products} />;
+  return (
+    <div className="shop__container">
+      <div className="wrap">
+        <div className="shop__inner">
+          <ProductsView products={products} />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ShopPage;

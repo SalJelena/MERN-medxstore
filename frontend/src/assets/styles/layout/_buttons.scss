@@ -32,6 +32,40 @@ button {
     transition: 0.4s ease;
 }
 
+.button--round {
+    font-family: $font-default;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 42px;
+    text-transform: uppercase;
+    color: $black;
+    position: relative;
+    padding-left: 35px;
+    padding-right: 15px;
+    transition: all 0.3s ease-out 0s;
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 42px;
+        height: 42px;
+        border-radius: 22px;
+        top: 0;
+        left: 0;
+        background-color: $main-color;
+        transition: all 0.3s ease-out 0s;
+        z-index: -1;
+    }
+
+    &:hover {
+        color: $white;
+
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
 .button--primary {
     color: $white;
     background: linear-gradient(180deg, $main-color-mix 0%, $main-color 100%);
