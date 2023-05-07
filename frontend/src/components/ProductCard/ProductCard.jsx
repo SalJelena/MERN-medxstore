@@ -7,7 +7,6 @@ const ProductCard = ({ product }) => {
   return (
     <Link to={"/product/" + product._id} className='product__card card'>
       <div className='card__img-holder'>
-          {/*<img src={product.thumbnail} alt={product.title} className="card__img"/>*/}
         <div className='card__img' style={{ backgroundImage: "url(" + product.thumbnail + ")" }}></div>
       </div>
         <div className="card__hover">
