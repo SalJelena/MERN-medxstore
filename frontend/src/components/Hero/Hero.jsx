@@ -1,12 +1,14 @@
 import React from 'react'
-import {Autoplay, Navigation, EffectFade} from 'swiper';
+import {Autoplay, Navigation} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import {HERO_SLIDER} from "../../config/heroSliderData";
+import {useSwiper} from "swiper/react";
 
 
 const Hero = () => {
+    const swiper = useSwiper()
 
     const renderedSlides = () => {
         return HERO_SLIDER.map((el, index) => {
@@ -28,7 +30,7 @@ const Hero = () => {
                             <div className="hero__stack">
                                 {el.info?.map((el, index) => {
                                     return (
-                                        <div className="hero__item">
+                                        <div className="hero__item" key={index}>
                                             <span className="hero__icon">{el.icon}</span>
                                             <span className="hero__text">{el.description}</span>
                                         </div>
@@ -45,11 +47,12 @@ const Hero = () => {
     return (
         <div className='hero'>
             <Swiper
-                modules={[Navigation]}
+                modules={[Navigation, Autoplay]}
                 spaceBetween={0}
                 slidesPerView={1}
-                //autoplay={{delay: 6000}}
-                navigation={{clickable: true}}
+                loop={true}
+                autoplay={{delay: 5000}}
+                navigation={true}
                 onSwiper={(swiper) => console.log()}
                 onSlideChange={() => console.log()}
                 className="hero__slider"

@@ -150,3 +150,46 @@
     max-width: unset;
   }
 }
+
+.hero__navigation {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+}
+
+.hero {
+  .swiper-button-prev, .swiper-button-next {
+    bottom: 0 !important;
+    left: 6% !important;
+    font-size: 16px !important;
+    top: 80% !important;
+    border-radius: 50% !important;
+    background-color: $blue-light !important;
+    width: 35px !important;
+    height: 35px !important;
+    color: $white !important;
+
+    &::after {
+      font-size: 16px !important;
+    }
+  }
+
+  .swiper-button-next {
+    left: 10% !important;
+  }
+
+  .swiper-button-prev, .swiper-button-next {
+    @include media-breakpoint-down(md) {
+      bottom: unset !important;
+      top: 50px !important;
+      left: 20px !important;
+    }
+  }
+
+  .swiper-button-next {
+    @include media-breakpoint-down(md) {
+      left: 70px !important;
+    }
+  }
+
+}
