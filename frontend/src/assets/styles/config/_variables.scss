@@ -26,17 +26,16 @@ $main-color: #80B4FF;
 $main-color-mix: rgba(160, 199, 255, 1);
 $main-color-mix2: rgba(185, 214, 255, 1);
 
-
-
+$title-color: #2D3F59;
 
 
 // ----------  Media queries breakpoints - Grid breakpoint
 // ------------------------------------------------------------------------------
 
 $grid-breakpoints: (
-	xs: 0,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1200px
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
 ) !default;
