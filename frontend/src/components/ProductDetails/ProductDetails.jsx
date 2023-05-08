@@ -47,7 +47,6 @@ const ProductDetails = ({product}) => {
 
     return (
         <div className="product__details">
-
             <div className="product__content-left">
                 {
                     product.images?.length !== 0 ?
