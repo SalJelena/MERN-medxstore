@@ -1,4 +1,4 @@
-import { routes } from "./routes";
+import {routes} from "./routes";
 
 import HomePage from "../pages/HomePage/HomePage";
 import ShopPage from "../pages/ShopPage/ShopPage";
@@ -8,18 +8,26 @@ import SingleProductPage from "../pages/SingleProductPage/SingleProductPage";
 export const appChildren = [
     {
         path: routes.HOME.path,
-        element: <HomePage />
+        element: <HomePage/>
     },
     {
         path: routes.SHOP.path,
-        element: <ShopPage />
+        element: <ShopPage/>
     },
     {
         path: routes.PRODUCT_DETAIL.path,
-        element: <SingleProductPage />
+        element: <SingleProductPage/>
     },
     {
         path: routes.CONTACT.path,
-        element: <ContactPage />
+        element: <ContactPage/>
+    },
+    {
+        path: routes.CATEGORY_PRODUCT.path,
+        element: <ShopPage/>
+    },
+    {
+        path: routes.BRAND_PRODUCT.path,
+        element: <ShopPage/>
     }
 ]

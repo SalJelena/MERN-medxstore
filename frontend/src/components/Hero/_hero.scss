@@ -53,10 +53,12 @@
   font-family: $font-headings;
   font-weight: 600;
   margin-bottom: 60px;
+  white-space: nowrap;
   @include responsive-font(100, 165, 1025, 1540);
 
   @include media-breakpoint-down(md) {
     @include responsive-font(30, 120, 0, 1024.99);
+    white-space: normal;
   }
 
 }
