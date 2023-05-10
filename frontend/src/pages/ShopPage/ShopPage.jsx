@@ -18,8 +18,11 @@ const ShopPage = () => {
 
     let limit = searchParams.get("limit") ? parseInt(searchParams.get("limit")) : 8
     let page = searchParams.get("page") ? parseInt(searchParams.get("page")) : 1
+    let sort = searchParams.get("sort") ? searchParams.get("sort") : "ascending"
+
     let category = searchParams.get("category") ? searchParams.get("category") : ""
     let brand = searchParams.get("brand") ? searchParams.get("brand") : ""
+
 
     useEffect(() => {
         let req = null
@@ -29,7 +32,7 @@ const ShopPage = () => {
         } else if (brand) {
             setSearchParams({brand, limit, page})
         } else {
-            setSearchParams({limit, page})
+            setSearchParams({sort, limit, page})
         }
 
         if (category) {
@@ -37,7 +40,7 @@ const ShopPage = () => {
         } else if (brand) {
             req = ProductService.paginationByBrand(brand, limit, page)
         } else {
-            req = ProductService.paginationProducts(limit, page)
+            req = ProductService.paginationProducts(sort, limit, page)
         }
 
         req.then((res) => {

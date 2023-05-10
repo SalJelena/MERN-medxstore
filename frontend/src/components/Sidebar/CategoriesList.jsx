@@ -29,7 +29,7 @@ const CategoriesList = () => {
                                   : `sidebar__list-link`
                           }>
                         {el.name}
-                        <span className="sidebar__list-count">{el.count}</span>
+                        <span className="sidebar__list-count">({el.count})</span>
                     </Link>
                 </li>
             )

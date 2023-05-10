@@ -1,43 +1,43 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {setProducts} from "../../store/productsSlice";
+import {MdKeyboardArrowDown} from "react-icons/md"
+import {useSearchParams} from "react-router-dom";
 
 const SortProducts = () => {
-    const [sort, setSort] = useState("")
+    const [sortOrder, setSortOrder] = useState("lowPrice")
     const {products} = useSelector(state => state.productsStore)
     const dispatch = useDispatch()
 
+    const [searchParams, setSearchParams] = useSearchParams()
+
     useEffect(() => {
-        let sortedProducts = []
-
-        if (sort === "lowPrice") {
-            sortedProducts = [...products]
-            sortedProducts = sortedProducts.sort((a, b) => a.price - b.price)
-            dispatch(setProducts(sortedProducts))
-
-        } else if (sort === "highPrice") {
-            sortedProducts = [...products]
-            sortedProducts = sortedProducts.sort((a, b) => b.price - a.price)
-            dispatch(setProducts(sortedProducts))
+        if (sortOrder === "lowPrice") {
+            setSearchParams({sort: "ascending"})
+            dispatch(setProducts(products))
+        } else if (sortOrder === "highPrice") {
+            setSearchParams({sort: "descending"})
+            dispatch(setProducts(products))
         }
-
-
-    }, [sort])
+    }, [sortOrder])
 
     return (
         <div className="sidebar__item">
             <h3 className="sidebar__title">Sort</h3>
-            <form className="sidebar__form form">
+            <form className="sidebar__form">
                 <div className="sidebar__form-group">
                     <select
                         className="sidebar__form-select"
-                        value={sort}
-                        onChange={(event) => setSort(event.target.value)}
+                        value={sortOrder}
+                        onChange={(event) => setSortOrder(event.target.value)}
                     >
-                        <option value="" disabled={true}>Choose option</option>
-                        <option value="lowPrice">By lowest price</option>
-                        <option value="highPrice">By highest price</option>
+                        <option value="" disabled={true} className="sidebar__form-option">Choose option</option>
+                        <option value="lowPrice" className="sidebar__form-option">By lowest price</option>
+                        <option value="highPrice" className="sidebar__form-option">By highest price</option>
                     </select>
+                    <span className="sidebar__form-icon">
+                        <MdKeyboardArrowDown/>
+                    </span>
                 </div>
             </form>
         </div>

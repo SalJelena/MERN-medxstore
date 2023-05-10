@@ -8,7 +8,17 @@ const productsSlice = createSlice({
     },
     reducers: {
         setProducts: (state, action) => {
-            state.products = action.payload
+
+            if (action.payload.sort === "low") {
+                let sorted = [...action.payload.products]
+                state.products = sorted.sort((a, b) => a.price - b.price)
+            } else if (action.payload.sort === "high") {
+                let sorted = [...action.payload.products]
+                state.products = sorted.sort((a, b) => b.price - a.price)
+            } else {
+                state.products = action.payload
+            }
+
         },
         setSingleProduct: (state, action) => {
             state.product = action.payload

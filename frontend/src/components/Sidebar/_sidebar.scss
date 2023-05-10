@@ -151,3 +151,60 @@
     }
   }
 }
+
+.sidebar__form {
+  width: 100%;
+  font-family: $font-default;
+  border: none;
+  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer;
+
+  &-group {
+    border: 1px solid $grey-light;
+
+  }
+
+  &-select {
+    appearance: none;
+    border: 0;
+    padding: 8px 10px;
+    font-family: $font-default;
+    color: $title-color;
+    width: 220px;
+    cursor: pointer;
+  }
+
+  &-option {
+    width: 200px;
+  }
+
+  &-icon {
+    position: absolute;
+    right: 20px;
+    z-index: 20;
+    font-size: 18px;
+    color: $title-color;
+    bottom: 3px;
+  }
+}
+
+.sidebar__btn {
+  margin-bottom: 20px;
+}
+
+.sidebar__reset {
+  font-family: $font-default;
+  font-size: 14px;
+  color: $white;
+  background-color: $main-color-mix;
+  padding: 5px 15px;
+  border-radius: 30px;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: $main-color-mix2;
+  }
+}
+
+

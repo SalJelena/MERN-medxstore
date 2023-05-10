@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {AiOutlineHeart} from "react-icons/ai";
+import {Link} from "react-router-dom";
 
 const ProductDetails = ({product}) => {
     const [quantity, setQuantity] = useState(1);
@@ -17,13 +18,15 @@ const ProductDetails = ({product}) => {
 
     const renderedBrand = () => {
         return product?.brandName?.map((el, index) => {
-            return <a href="/" className="product__brand" key={index}>{el.name}</a>
+            return <Link to={`/products/filterbrand?brand=${el.name}`} className="product__brand"
+                         key={index}>{el.name}</Link>
         })
     }
 
     const renderedCategories = () => {
         return product?.categoryName?.map((el, index) => {
-            return <a href="/" className="product__category" key={index}>{el.name}</a>
+            return <Link to={`/products/filtercategory?category=${el.name}`} className="product__category"
+                         key={index}>{el.name}</Link>
         })
     }
 
