@@ -7,7 +7,7 @@ const TextPanel = () => {
 
     const renderedCards = () => {
         return TEXT_PANEL_DATA.map((el, index) => {
-            return <Link to={routes.ABOUT_US.path} className="text-panel__card">
+            return <Link to={routes.ABOUT_US.path} className="text-panel__card" key={index}>
                 <span className="text-panel__icon">{el.icon}</span>
                 <h3 className="text-panel__title">{el.title}</h3>
                 <p className="text-panel__text">{el.desc}</p>
