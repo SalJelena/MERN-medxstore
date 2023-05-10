@@ -1,0 +1,118 @@
+.text-panel {
+  //background-color: $blue-light3;
+  margin-bottom: 100px;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: $blue-light3;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+  }
+
+  &__content {
+    //background-color: $blue-dark2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: $blue-dark2;
+      border-radius: 40px;
+      top: 50px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 480px;
+      z-index: -1;
+    }
+
+    @include media-breakpoint-down(md) {
+      background-color: $blue-dark2;
+      padding: 30px;
+      flex-direction: row;
+      border-radius: 40px;
+
+      &::after {
+        display: none;
+      }
+    }
+
+
+  }
+
+  &__card {
+    width: 30%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $white;
+    margin-bottom: 40px;
+    text-decoration: none;
+
+    &:hover {
+      .text-panel__title {
+        color: $blue;
+      }
+
+      .text-panel__icon {
+        font-size: 45px;
+      }
+    }
+
+    @include media-breakpoint-only(md) {
+      width: 50%;
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+  }
+
+  &__icon {
+    border-radius: 50%;
+    background-color: $white;
+    color: $blue;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
+    transition: 0.3s ease;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-family: $font-headings;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+  }
+
+  &__text {
+    font-family: $font-default;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+  }
+
+}
+
