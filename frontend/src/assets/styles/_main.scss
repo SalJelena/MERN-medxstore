@@ -43,7 +43,13 @@
 @import "../../components/LatestProducts/latestProducts";
 @import "../../components/ProductsSlider/productsSlider";
 @import "../../components/Accordion/accordion";
+@import "../../components/SearchForm/searchForm";
+@import "../../components/Map/map";
+@import "../../components/ContactForm/contactForm";
+@import "../../components/ContactInfo/contactInfo";
 
 //#Pages-------------------------------------------------------------- */
 @import "../../pages/SingleProductPage/singleProductPage";
 @import "../../pages/ShopPage/shopPage";
+@import "../../pages/SearchResultsPage/searchResultsPage";
+@import "../../pages/ContactPage/contactPage";

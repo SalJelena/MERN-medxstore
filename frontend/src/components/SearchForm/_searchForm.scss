@@ -1,0 +1,100 @@
+.search {
+  width: 100%;
+  height: 400px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $white;
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0px 4px 14px -1px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in;
+
+  &__overlay {
+    content: '';
+    position: absolute;
+    background: rgba($black, 0.6);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in;
+    z-index: 998;
+  }
+
+  &--active {
+    visibility: visible;
+    opacity: 1;
+
+  }
+
+  &--active ~ .search__overlay {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__title {
+    color: $title-color;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-family: $font-headings;
+    text-align: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 30px;
+    color: $title-color;
+  }
+
+  &__container {
+    width: 700px;
+  }
+
+  &__form {
+    background-color: rgba($grey-light, 0.2);
+    width: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__input {
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    font-family: $font-default;
+    font-size: 20px;
+    line-height: 24px;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba($grey-light, 0.2);
+  }
+
+  &__btn {
+    outline: none;
+    border: 0;
+    box-shadow: none;
+    width: 70px;
+    font-size: 20px;
+    background-color: rgba($grey-light, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+  }
+}

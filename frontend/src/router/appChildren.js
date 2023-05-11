@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import ShopPage from "../pages/ShopPage/ShopPage";
 import ContactPage from "../pages/ContactPage/ContactPage";
 import SingleProductPage from "../pages/SingleProductPage/SingleProductPage";
+import SearchResultsPage from "../pages/SearchResultsPage/SearchResultsPage";
 
 export const appChildren = [
     {
@@ -29,5 +30,9 @@ export const appChildren = [
     {
         path: routes.BRAND_PRODUCT.path,
         element: <ShopPage/>
+    },
+    {
+        path: routes.SEARCH_RESULTS.path,
+        element: <SearchResultsPage/>
     }
 ]
