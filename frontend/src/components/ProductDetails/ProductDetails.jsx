@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {AiOutlineHeart} from "react-icons/ai";
 import {Link} from "react-router-dom";
+import ReviewsStars from "../ReviewsStars/ReviewsStars";
 
 const ProductDetails = ({product}) => {
     const [quantity, setQuantity] = useState(1);
@@ -75,7 +76,7 @@ const ProductDetails = ({product}) => {
                 <h2 className="product__title">{product.title}</h2>
                 {renderedBrand()}
                 <div>
-                    <span className="product__reviews">Reviews</span>
+                    <ReviewsStars rating={product.rating}/>
                 </div>
                 <p className="product__description">{product.description}</p>
                 <div className="product__stock">

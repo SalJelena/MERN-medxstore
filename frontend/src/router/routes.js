@@ -46,7 +46,16 @@ export const routes = {
     ABOUT_US: {path: "/about", name: "About us"},
     FAQ: {path: "/faq", name: "FAQ"},
     POLICY: {path: "/policy", name: "Shipping & Return Policy"},
-    SEARCH_RESULTS: {path: "/results", name: "Search Results"}
+    SEARCH_RESULTS: {path: "/results", name: "Search Results"},
+    AUTH: {
+        path: "/auth", name: "Authorization"
+    },
+    LOGIN: {
+        path: "/auth/login", name: "Login"
+    },
+    REGISTER: {
+        path: "/auth/register", name: "Register"
+    }
 };
 
 export const mainNavbarItem = [routes.HOME, routes.SHOP, routes.CONTACT, routes.COLLECTIONS, routes.ABOUT_US];

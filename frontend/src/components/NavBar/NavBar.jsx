@@ -7,6 +7,7 @@ import NavItems from "./NavItems";
 import {useState} from "react";
 import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 import SearchForm from "../SearchForm/SearchForm";
+import {routes} from "../../router/routes";
 
 const NavBar = () => {
     const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
@@ -44,9 +45,9 @@ const NavBar = () => {
                                 </button>
                             </div>
                             <div className="nav__control">
-                                <button type="button" className="nav__user">
+                                <Link to={routes.AUTH.path} className="nav__user">
                                     <BsFillPersonFill/>
-                                </button>
+                                </Link>
                             </div>
                             <div className="nav__control">
                                 <button type="button" className="nav__cart">

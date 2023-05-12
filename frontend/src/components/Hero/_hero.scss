@@ -171,6 +171,8 @@
 }
 
 .hero {
+  position: relative;
+
   .swiper-button-prev, .swiper-button-next {
     bottom: 0 !important;
     left: 6% !important;
@@ -188,7 +190,12 @@
   }
 
   .swiper-button-next {
-    left: 10% !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: unset !important;
+    right: 0 !important;
+    transform: translateY(-50%) !important;
+    z-index: 999 !important;
   }
 
   .swiper-button-prev, .swiper-button-next {

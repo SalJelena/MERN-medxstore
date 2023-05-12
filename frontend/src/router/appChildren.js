@@ -5,6 +5,7 @@ import ShopPage from "../pages/ShopPage/ShopPage";
 import ContactPage from "../pages/ContactPage/ContactPage";
 import SingleProductPage from "../pages/SingleProductPage/SingleProductPage";
 import SearchResultsPage from "../pages/SearchResultsPage/SearchResultsPage";
+import AuthPage from "../pages/AuthPage/AuthPage";
 
 export const appChildren = [
     {
@@ -34,5 +35,16 @@ export const appChildren = [
     {
         path: routes.SEARCH_RESULTS.path,
         element: <SearchResultsPage/>
-    }
+    },
+    {
+        path: routes.AUTH.path,
+        element: <AuthPage/>
+    },
+    {
+        path: routes.LOGIN.path,
+        element: <AuthPage/>
+    }, {
+        path: routes.REGISTER.path,
+        element: <AuthPage/>
+    },
 ]

@@ -47,9 +47,13 @@
 @import "../../components/Map/map";
 @import "../../components/ContactForm/contactForm";
 @import "../../components/ContactInfo/contactInfo";
+@import "../../components/ReviewsStars/reviewStars";
+@import "../../components/Login/login";
+@import "../../components/Register/register";
 
 //#Pages-------------------------------------------------------------- */
 @import "../../pages/SingleProductPage/singleProductPage";
 @import "../../pages/ShopPage/shopPage";
 @import "../../pages/SearchResultsPage/searchResultsPage";
 @import "../../pages/ContactPage/contactPage";
+@import "../../pages/AuthPage/authPage";

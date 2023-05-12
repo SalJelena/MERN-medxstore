@@ -2,6 +2,7 @@ import React from 'react'
 import TitleHeading from "../TitleHeading/TitleHeading";
 import Accordion from "./AccordionBody";
 import bgImage from "../../assets/images/06.jpg"
+import VideoPanel from "../VideoPanel/VideoPanel";
 
 const AccordionPanel = () => {
     return (
@@ -10,6 +11,7 @@ const AccordionPanel = () => {
                 <TitleHeading title="You've Got Any Questions?" subtitle="Recently asked questions"/>
                 <div className="accordion-panel__holder">
                     <div className="accordion-panel__image">
+                        {/*//<VideoPanel/>*/}
                         <div className="accordion-panel__img" style={{backgroundImage: "url(" + bgImage + ")"}}/>
                     </div>
                     <Accordion/>

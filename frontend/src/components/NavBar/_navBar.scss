@@ -274,3 +274,14 @@
     }
   }
 }
+
+.nav__user {
+  font-size: 24px;
+  color: $blue-dark2;
+  text-decoration: none;
+  transition: 0.3s ease-in;
+
+  &:hover {
+    color: $yellow;
+  }
+}

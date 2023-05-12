@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {BsArrowRight} from "react-icons/bs";
 import {Link} from "react-router-dom";
 import {AiFillHeart, AiOutlineHeart} from "react-icons/ai";
+import ReviewsStars from "../ReviewsStars/ReviewsStars";
 
 const ProductCard = ({product}) => {
     const [user, setUser] = useState([])
@@ -26,7 +27,7 @@ const ProductCard = ({product}) => {
                 }
             </div>
             <div className='card__reviews'>
-                <span>Reviews</span>
+                <ReviewsStars rating={product.rating}/>
             </div>
             <h4 className='card__title'>{product.title}</h4>
             <div className='card__control'>
