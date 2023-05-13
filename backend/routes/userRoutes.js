@@ -3,8 +3,13 @@ const router = express.Router();
 
 
 /***** GET *****/
-// router.get("/addUser", require("../controlers/userControler/addUser"));
-// router.get("/allUsers", require("../controlers/userControler/getAllUsers"));
 
+
+/***** POST *****/
+router.post("/register", require("../controlers/UserControler/registerUser"))
+router.post("/login", require("../controlers/UserControler/loginUser"))
+
+/***** PUT *****/
+router.put("/activate/:id", require("../controlers/UserControler/activateAccount"))
 
 module.exports = router;

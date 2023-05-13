@@ -55,6 +55,9 @@ export const routes = {
     },
     REGISTER: {
         path: "/auth/register", name: "Register"
+    },
+    ACTIVATE_ACCOUNT: {
+        path: "/user/activate/:id", name: "Activate account"
     }
 };
 

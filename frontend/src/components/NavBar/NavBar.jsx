@@ -8,10 +8,13 @@ import {useState} from "react";
 import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 import SearchForm from "../SearchForm/SearchForm";
 import {routes} from "../../router/routes";
+import {useSelector} from "react-redux";
 
 const NavBar = () => {
     const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
     const [searchOpened, setSearchOpened] = useState(false)
+
+    const {user} = useSelector(state => state.usersStore)
 
     const handleMobileMenu = () => {
         !mobileMenuVisible ? setMobileMenuVisible(true) : setMobileMenuVisible(false)
@@ -46,8 +49,27 @@ const NavBar = () => {
                             </div>
                             <div className="nav__control">
                                 <Link to={routes.AUTH.path} className="nav__user">
+                                    {user.hasOwnProperty("email") ?
+                                        <span>{user.firstName}</span>
+                                        :
+                                        null
+                                    }
                                     <BsFillPersonFill/>
                                 </Link>
+                                <div className="nav__user-dropdown">
+                                    {user.hasOwnProperty("email") ?
+                                        <>
+                                            <Link to={routes.AUTH.path} className="nav__user-item">Login</Link>
+                                            <Link to={routes.AUTH.path} className="nav__user-item">Register</Link>
+                                        </>
+                                        :
+                                        <>
+                                            <Link to={routes.AUTH.path} className="nav__user-item">Login</Link>
+                                            <Link to={routes.AUTH.path} className="nav__user-item">Register</Link>
+                                        </>
+                                    }
+
+                                </div>
                             </div>
                             <div className="nav__control">
                                 <button type="button" className="nav__cart">

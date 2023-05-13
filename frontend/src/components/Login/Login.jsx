@@ -1,8 +1,18 @@
 import React from 'react'
 import {useFormik} from "formik";
 import * as Yup from "yup";
+import UserService from "../../services/userService";
+import {LS_TOKEN} from "../../config/configVars";
+import {useDispatch} from "react-redux";
+import {setUser} from "../../store/usersSlice";
+import {toast, ToastContainer} from "react-toastify";
+import {useNavigate} from "react-router-dom";
+import {routes} from "../../router/routes";
 
 const Login = () => {
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const formik = useFormik({
         initialValues: {
@@ -15,8 +25,24 @@ const Login = () => {
                 .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g, "Invalid email format")
                 .required("Email is required.")
         }),
-        onSubmit: (values) => {
-            console.log(values)
+        onSubmit: (values, {resetForm}) => {
+            UserService.loginUser(values)
+                .then((res) => {
+                    if (res.status === 201) {
+                        console.log(res.data.msg)
+                    } else {
+                        dispatch(setUser(res.data.user))
+                        localStorage.setItem(LS_TOKEN, res.data.token);
+                        toast.success("You are logged in");
+                        resetForm()
+                        setTimeout(() => {
+                            navigate(routes.HOME.path);
+                        }, 3000);
+                    }
+                })
+                .catch(() => {
+
+                })
         }
     })
 
@@ -58,6 +84,7 @@ const Login = () => {
                 </div>
                 <button type="submit" className="auth__submit button button--rounded button--primary">Submit</button>
             </form>
+            <ToastContainer/>
         </div>
     )
 }

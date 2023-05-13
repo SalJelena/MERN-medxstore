@@ -1,8 +1,37 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useFormik} from "formik";
 import * as Yup from "yup";
+import UserService from "../../services/userService";
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Register = () => {
+const Register = ({setSelectedTab}) => {
+
+    const notifyError = () => {
+        toast.error('User with this email address already exists.', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
+    const notifyConfirm = () => {
+        toast.success('You have successfully registered. Please check your email for activation link.', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
 
     const formik = useFormik({
         initialValues: {
@@ -19,8 +48,20 @@ const Register = () => {
                 .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g, "Invalid email format")
                 .required("Email is required.")
         }),
-        onSubmit: (values) => {
-            console.log(values)
+        onSubmit: (values, {resetForm}) => {
+            UserService.registerUser(values)
+                .then(res => {
+                    if (res.status === 201) {
+                        notifyError()
+                    } else {
+                        notifyConfirm()
+                        resetForm()
+                        setTimeout(() => {
+                            setSelectedTab("login")
+                        }, 3000)
+                    }
+                })
+                .catch(err => console.log(err))
         }
     })
 
@@ -93,6 +134,18 @@ const Register = () => {
 
                 <button type="submit" className="auth__submit button button--rounded button--primary">Submit</button>
             </form>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     )
 }

@@ -261,6 +261,8 @@
 }
 
 .nav__control {
+  position: relative;
+
   button {
     margin: 0 10px;
     font-size: 24px;
@@ -283,5 +285,31 @@
 
   &:hover {
     color: $yellow;
+  }
+}
+
+.nav__user-dropdown {
+  position: absolute;
+  top: 30px;
+  background-color: $white;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  border-radius: 0 0 15px 15px;
+
+}
+
+.nav__user-item {
+  font-family: $font-default;
+  color: $title-color;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  font-weight: 600;
+  padding: 8px 5px;
+
+  &:hover {
+    color: $blue;
   }
 }
