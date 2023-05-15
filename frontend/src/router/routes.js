@@ -58,7 +58,18 @@ export const routes = {
     },
     ACTIVATE_ACCOUNT: {
         path: "/user/activate/:id", name: "Activate account"
+    },
+    DASHBOARD: {
+        path: "/dashboard", name: "My Account"
+    },
+    MY_ORDERS: {
+        path: "orders", name: "My Orders"
+    },
+    MY_FAVORITES: {
+        path: "favorites", name: "My Favorites"
     }
+
 };
 
 export const mainNavbarItem = [routes.HOME, routes.SHOP, routes.CONTACT, routes.COLLECTIONS, routes.ABOUT_US];
+export const dashboardSidebarItem = [routes.DASHBOARD, routes.MY_ORDERS, routes.MY_FAVORITES]

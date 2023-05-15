@@ -1,0 +1,53 @@
+.dashboard {
+  width: 100%;
+  padding: 30px 0;
+  background-color: $blue-light3;
+
+  &__inner {
+    min-height: 500px;
+    display: flex;
+
+  }
+
+  &__sidebar {
+    border-radius: 20px;
+    background-color: rgba($white, 0.8);
+    width: 40%;
+    max-width: 200px;
+    margin-right: 40px;
+    padding: 20px 0;
+    backdrop-filter: blur(10px);
+  }
+
+  &__content {
+    border: px solid $yellow;
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  &__sidebar-item {
+    margin-bottom: 10px;
+
+    &:hover {
+      .dashboard__sidebar-link {
+        color: $blue;
+        padding-left: 15px;
+      }
+    }
+  }
+
+  &__sidebar-link {
+    color: $title-color;
+    text-decoration: none;
+    font-family: $font-headings;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 10px;
+    transition: 0.3s ease;
+  }
+}
+
+.dashboard__sidebar-link.active {
+  color: $blue;
+  padding-left: 15px;
+}

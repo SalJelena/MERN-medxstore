@@ -13,9 +13,13 @@ const usersSlice = createSlice({
         },
         restoreUser: (state, action) => {
             state.user = action.payload
+        },
+        logoutUser: (state, action) => {
+            state.user = {}
+            localStorage.removeItem(LS_USER)
         }
     }
 })
 
-export const {setUser, restoreUser} = usersSlice.actions
+export const {setUser, restoreUser, logoutUser} = usersSlice.actions
 export default usersSlice.reducer

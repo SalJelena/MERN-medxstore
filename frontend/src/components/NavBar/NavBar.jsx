@@ -1,5 +1,5 @@
 import React from "react"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import logoImg from "../../assets/images/logo-no-bg.png";
 import {MdSearch, MdShoppingCart} from "react-icons/md";
 import {BsFillPersonFill, BsList} from "react-icons/bs";
@@ -8,13 +8,18 @@ import {useState} from "react";
 import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 import SearchForm from "../SearchForm/SearchForm";
 import {routes} from "../../router/routes";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {logoutUser} from "../../store/usersSlice";
+import {LS_TOKEN} from "../../config/configVars";
 
 const NavBar = () => {
     const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
     const [searchOpened, setSearchOpened] = useState(false)
 
     const {user} = useSelector(state => state.usersStore)
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleMobileMenu = () => {
         !mobileMenuVisible ? setMobileMenuVisible(true) : setMobileMenuVisible(false)
@@ -24,6 +29,12 @@ const NavBar = () => {
     const handleSearchOpen = () => {
         !searchOpened ? setSearchOpened(true) : setSearchOpened(false)
         !searchOpened ? disableBodyScroll(document) : enableBodyScroll(document)
+    }
+
+    const handleLogout = () => {
+        dispatch(logoutUser())
+        localStorage.removeItem(LS_TOKEN)
+        navigate(routes.HOME.path)
     }
 
     return (
@@ -43,14 +54,15 @@ const NavBar = () => {
                         <NavItems onMobileMenu={mobileMenuVisible}/>
                         <div className="nav__controls">
                             <div className="nav__control">
-                                <button type="button" className="nav__search" onClick={handleSearchOpen}>
+                                <button type="button" className="nav__search nav__btn-control"
+                                        onClick={handleSearchOpen}>
                                     <MdSearch/>
                                 </button>
                             </div>
                             <div className="nav__control">
                                 <Link to={routes.AUTH.path} className="nav__user">
                                     {user.hasOwnProperty("email") ?
-                                        <span>{user.firstName}</span>
+                                        <span className="nav__user-name">{user.firstName}</span>
                                         :
                                         null
                                     }
@@ -59,8 +71,9 @@ const NavBar = () => {
                                 <div className="nav__user-dropdown">
                                     {user.hasOwnProperty("email") ?
                                         <>
-                                            <Link to={routes.AUTH.path} className="nav__user-item">Login</Link>
-                                            <Link to={routes.AUTH.path} className="nav__user-item">Register</Link>
+                                            <Link to={routes.DASHBOARD.path} className="nav__user-item">My
+                                                Account</Link>
+                                            <button className="nav__user-item" onClick={handleLogout}>Logout</button>
                                         </>
                                         :
                                         <>
@@ -72,12 +85,12 @@ const NavBar = () => {
                                 </div>
                             </div>
                             <div className="nav__control">
-                                <button type="button" className="nav__cart">
+                                <button type="button" className="nav__cart nav__btn-control">
                                     <MdShoppingCart/>
                                 </button>
                             </div>
                             <div className="nav__control">
-                                <button className="nav__menu-mobile" onClick={handleMobileMenu}>
+                                <button className="nav__menu-mobile nav__btn-control" onClick={handleMobileMenu}>
                                     <BsList/>
                                 </button>
                             </div>

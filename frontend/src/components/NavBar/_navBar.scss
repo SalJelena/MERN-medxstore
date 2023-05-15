@@ -263,7 +263,7 @@
 .nav__control {
   position: relative;
 
-  button {
+  .nav__btn-control {
     margin: 0 10px;
     font-size: 24px;
     color: $blue-dark2;
@@ -271,10 +271,17 @@
   }
 
   &:hover {
-    button {
+    .nav__btn-control {
       color: $yellow;
     }
+
+    .nav__user-dropdown {
+      visibility: visible;
+      opacity: 1;
+    }
+
   }
+
 }
 
 .nav__user {
@@ -286,28 +293,41 @@
   &:hover {
     color: $yellow;
   }
+
+  &-name {
+    font-size: 14px;
+    margin-right: 5px;
+    font-weight: 600;
+    font-family: $font-default;
+    position: relative;
+    bottom: 5px;
+  }
 }
 
 .nav__user-dropdown {
   position: absolute;
   top: 30px;
+  right: 0;
   background-color: $white;
   z-index: 90;
   display: flex;
   flex-direction: column;
   min-width: 100px;
   border-radius: 0 0 15px 15px;
-
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease;
 }
 
 .nav__user-item {
   font-family: $font-default;
   color: $title-color;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
   transition: 0.3s ease;
   font-weight: 600;
   padding: 8px 5px;
+  text-align: left;
 
   &:hover {
     color: $blue;
