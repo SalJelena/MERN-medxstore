@@ -7,6 +7,8 @@ import SingleProductPage from "../pages/SingleProductPage/SingleProductPage";
 import SearchResultsPage from "../pages/SearchResultsPage/SearchResultsPage";
 import AuthPage from "../pages/AuthPage/AuthPage";
 import ActivationAccountPage from "../pages/ActivationAccountPage/ActivationAccountPage";
+import Cart from "../components/Cart/Cart";
+import CartPage from "../pages/CartPage/CartPage";
 
 export const appChildren = [
     {
@@ -52,6 +54,10 @@ export const appChildren = [
     {
         path: routes.ACTIVATE_ACCOUNT.path,
         element: <ActivationAccountPage/>
+    },
+    {
+        path: routes.CART.path,
+        element: <CartPage/>
     }
 
 ]

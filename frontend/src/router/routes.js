@@ -60,13 +60,16 @@ export const routes = {
         path: "/user/activate/:id", name: "Activate account"
     },
     DASHBOARD: {
-        path: "/dashboard", name: "My Account"
+        path: "/dashboard", name: "Account"
     },
     MY_ORDERS: {
-        path: "orders", name: "My Orders"
+        path: "orders", name: "Orders"
     },
     MY_FAVORITES: {
-        path: "favorites", name: "My Favorites"
+        path: "favorites", name: "Favorites"
+    },
+    CART: {
+        path: "/cart", name: "Cart"
     }
 
 };

@@ -2,17 +2,20 @@ import React, {useState} from 'react'
 import {AiOutlineHeart} from "react-icons/ai";
 import {Link} from "react-router-dom";
 import ReviewsStars from "../ReviewsStars/ReviewsStars";
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../store/cartSlice";
 
 const ProductDetails = ({product}) => {
     const [quantity, setQuantity] = useState(1);
     const [mainImage, setMainImage] = useState(0)
+    const dispatch = useDispatch()
 
     const increaseQuantity = () => {
         setQuantity(quantity + 1);
     };
 
     const decreaseQuantity = () => {
-        if (quantity !== 0) {
+        if (quantity !== 0 && quantity !== 1) {
             setQuantity(quantity - 1);
         }
     };
@@ -47,6 +50,10 @@ const ProductDetails = ({product}) => {
                 </button>
             );
         });
+    }
+
+    const addToCartHandler = () => {
+        dispatch(addToCart({product, quantity}))
     }
 
     return (
@@ -112,7 +119,7 @@ const ProductDetails = ({product}) => {
                         </button>
                     </div>
 
-                    <button type="button" className="button button--primary product__btn">
+                    <button type="button" className="button button--primary product__btn" onClick={addToCartHandler}>
                         Add to cart
                     </button>
 

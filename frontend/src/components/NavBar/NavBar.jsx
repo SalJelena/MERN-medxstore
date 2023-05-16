@@ -11,8 +11,11 @@ import {routes} from "../../router/routes";
 import {useDispatch, useSelector} from "react-redux";
 import {logoutUser} from "../../store/usersSlice";
 import {LS_TOKEN} from "../../config/configVars";
+import {removeFromCart} from "../../store/cartSlice";
+import Cart from "../Cart/Cart";
 
 const NavBar = () => {
+    const [cartModalOpened, setCartModalOpened] = useState(false)
     const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
     const [searchOpened, setSearchOpened] = useState(false)
 
@@ -37,10 +40,15 @@ const NavBar = () => {
         navigate(routes.HOME.path)
     }
 
+    const handleCartOpen = () => {
+        !cartModalOpened ? setCartModalOpened(true) : setCartModalOpened(false)
+        !cartModalOpened ? disableBodyScroll(document) : enableBodyScroll(document)
+    }
+
     return (
         <>
             <nav className="nav">
-                <div className="wrap nav__holder ">
+                <div className="wrap nav__holder">
 
                     <Link to="/" className="nav__logo">
                         <img
@@ -81,14 +89,16 @@ const NavBar = () => {
                                             <Link to={routes.AUTH.path} className="nav__user-item">Register</Link>
                                         </>
                                     }
-
                                 </div>
                             </div>
-                            <div className="nav__control">
-                                <button type="button" className="nav__cart nav__btn-control">
+
+                            <div className="nav__control nav__cart">
+                                <button className="nav__btn-control" onClick={handleCartOpen}>
                                     <MdShoppingCart/>
                                 </button>
                             </div>
+
+
                             <div className="nav__control">
                                 <button className="nav__menu-mobile nav__btn-control" onClick={handleMobileMenu}>
                                     <BsList/>
@@ -100,6 +110,7 @@ const NavBar = () => {
                 </div>
             </nav>
             <SearchForm searchOpened={searchOpened} onOpen={handleSearchOpen}/>
+            <Cart cartModalOpened={cartModalOpened} onOpen={handleCartOpen}/>
         </>
     );
 };
