@@ -9,7 +9,7 @@ const AuthPage = () => {
 
     return (
         <div className="auth">
-            <Heading bgImage={bgImage}/>
+
             <div className="wrap">
                 <div className="auth__container">
                     <div className="auth__inner">
@@ -45,6 +45,7 @@ const AuthPage = () => {
                     </div>
                 </div>
             </div>
+            <Heading bgImage={bgImage} reversed={true}/>
         </div>
     )
 }

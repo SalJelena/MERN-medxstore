@@ -174,12 +174,12 @@
   position: relative;
 
   .swiper-button-prev, .swiper-button-next {
-    bottom: 0 !important;
-    left: 6% !important;
     font-size: 16px !important;
-    top: 80% !important;
     border-radius: 50% !important;
-    background-color: $blue-light !important;
+    background-color: rgba($blue-light, 0.7) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     width: 35px !important;
     height: 35px !important;
     color: $white !important;
@@ -189,14 +189,6 @@
     }
   }
 
-  .swiper-button-next {
-    position: absolute !important;
-    top: 50% !important;
-    left: unset !important;
-    right: 0 !important;
-    transform: translateY(-50%) !important;
-    z-index: 999 !important;
-  }
 
   .swiper-button-prev, .swiper-button-next {
     @include media-breakpoint-down(md) {

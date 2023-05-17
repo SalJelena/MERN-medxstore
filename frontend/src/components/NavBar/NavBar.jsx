@@ -19,6 +19,7 @@ const NavBar = () => {
     const [cartModalOpened, setCartModalOpened] = useState(false)
     const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
     const [searchOpened, setSearchOpened] = useState(false)
+    const [dropVisible, setDropVisible] = useState(false)
 
     const {user} = useSelector(state => state.usersStore)
     const {cart} = useSelector(store => store.cartStore)
@@ -40,8 +41,7 @@ const NavBar = () => {
         dispatch(logoutUser())
         dispatch(clearCart())
         localStorage.removeItem(LS_TOKEN)
-        
-        navigate(routes.HOME.path)
+        navigate(routes.AUTH.path)
     }
 
     const handleCartOpen = () => {
@@ -65,36 +65,42 @@ const NavBar = () => {
                     <div className="nav__inner">
                         <NavItems onMobileMenu={mobileMenuVisible}/>
                         <div className="nav__controls">
+
                             <div className="nav__control">
                                 <button type="button" className="nav__search nav__btn-control"
                                         onClick={handleSearchOpen}>
                                     <MdSearch/>
                                 </button>
                             </div>
-                            <div className="nav__control">
-                                <Link to={routes.AUTH.path} className="nav__user">
+
+                            <div className="nav__control nav__control-user">
+                                <div className={`nav__user-drop-holder ${dropVisible ? "active" : ""}`}>
+                                    <div className="nav__user-dropdown">
+                                        {user.hasOwnProperty("email") ?
+                                            <>
+                                                <Link to={routes.DASHBOARD.path} className="nav__user-item">My
+                                                    Account</Link>
+                                                <button className="nav__user-item" onClick={handleLogout}>Logout
+                                                </button>
+                                            </>
+                                            :
+                                            <>
+                                                <Link to={routes.AUTH.path} className="nav__user-item">Login</Link>
+                                                <Link to={routes.AUTH.path} className="nav__user-item">Register</Link>
+                                            </>
+                                        }
+                                    </div>
+                                </div>
+                                <button type="button" className="nav__user">
                                     {user.hasOwnProperty("email") ?
                                         <span className="nav__user-name">{user.firstName}</span>
                                         :
                                         null
                                     }
                                     <BsFillPersonFill/>
-                                </Link>
-                                <div className="nav__user-dropdown">
-                                    {user.hasOwnProperty("email") ?
-                                        <>
-                                            <Link to={routes.DASHBOARD.path} className="nav__user-item">My
-                                                Account</Link>
-                                            <button className="nav__user-item" onClick={handleLogout}>Logout</button>
-                                        </>
-                                        :
-                                        <>
-                                            <Link to={routes.AUTH.path} className="nav__user-item">Login</Link>
-                                            <Link to={routes.AUTH.path} className="nav__user-item">Register</Link>
-                                        </>
-                                    }
-                                </div>
+                                </button>
                             </div>
+
 
                             <div className="nav__control nav__cart">
                                 <button className="nav__btn-control" onClick={handleCartOpen}>

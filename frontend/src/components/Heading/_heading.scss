@@ -53,6 +53,20 @@
   }
 }
 
+.heading__image--reversed {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(359deg, rgba($main-color, 0.7654412107) 0%, rgba($main-color, -0.295081) -22%, rgb(255, 255, 255) 94%);
+    z-index: 5;
+  }
+}
+
 .heading__title {
   font-size: 3rem;
   color: $black;

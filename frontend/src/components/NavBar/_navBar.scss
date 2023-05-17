@@ -257,6 +257,7 @@
 
 .nav__controls {
   display: flex;
+  align-items: center;
   z-index: 5;
 }
 
@@ -274,14 +275,28 @@
     .nav__btn-control {
       color: $yellow;
     }
+  }
+}
 
-    .nav__user-dropdown {
-      visibility: visible;
-      opacity: 1;
+.nav__control-user {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+  //max-width: 400px;
+  justify-content: space-between;
+
+  &:hover {
+    .nav__user-drop-holder {
+      width: 100%;
+      background-color: $white;
     }
 
+    .nav__user {
+      color: $yellow;
+    }
   }
-
 }
 
 .nav__user {
@@ -289,6 +304,11 @@
   color: $blue-dark2;
   text-decoration: none;
   transition: 0.3s ease-in;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  right: 0;
+  position: relative;
 
   &:hover {
     color: $yellow;
@@ -300,23 +320,28 @@
     font-weight: 600;
     font-family: $font-default;
     position: relative;
-    bottom: 5px;
+    overflow: hidden;
   }
 }
 
-.nav__user-dropdown {
-  position: absolute;
-  top: 30px;
+.nav__user-drop-holder {
+  width: 0;
   right: 0;
+  position: relative;
+  transition: width 0.3s ease;
   background-color: $white;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.nav__user-dropdown {
+  position: relative;
   z-index: 90;
+  right: 0;
+  bottom: 0;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  min-width: 100px;
-  border-radius: 0 0 15px 15px;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s ease;
+  flex-direction: row;
 }
 
 .nav__user-item {
@@ -326,8 +351,7 @@
   text-transform: uppercase;
   transition: 0.3s ease;
   font-weight: 600;
-  padding: 8px 5px;
-  text-align: left;
+  padding: 10px 8px;
 
   &:hover {
     color: $blue;
