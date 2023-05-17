@@ -5,6 +5,7 @@ import {routes} from "../../router/routes";
 import {useDispatch, useSelector} from "react-redux";
 import {RiDeleteBinLine} from "react-icons/ri";
 import {MdOutlineClose} from "react-icons/md";
+import {FaRegCheckCircle} from "react-icons/fa";
 
 const Cart = ({cartModalOpened, onOpen}) => {
 

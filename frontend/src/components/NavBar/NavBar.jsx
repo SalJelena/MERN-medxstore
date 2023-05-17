@@ -13,6 +13,7 @@ import {logoutUser} from "../../store/usersSlice";
 import {LS_TOKEN} from "../../config/configVars";
 import {removeFromCart} from "../../store/cartSlice";
 import Cart from "../Cart/Cart";
+import {AiFillCheckCircle} from "react-icons/ai";
 
 const NavBar = () => {
     const [cartModalOpened, setCartModalOpened] = useState(false)
@@ -20,6 +21,7 @@ const NavBar = () => {
     const [searchOpened, setSearchOpened] = useState(false)
 
     const {user} = useSelector(state => state.usersStore)
+    const {cart} = useSelector(store => store.cartStore)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -95,6 +97,13 @@ const NavBar = () => {
                             <div className="nav__control nav__cart">
                                 <button className="nav__btn-control" onClick={handleCartOpen}>
                                     <MdShoppingCart/>
+                                    {cart.length !== 0 ?
+                                        <span className="nav__cart-checkmark">
+                                            <AiFillCheckCircle/>
+                                        </span>
+                                        :
+                                        null
+                                    }
                                 </button>
                             </div>
 

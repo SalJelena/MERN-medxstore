@@ -37,7 +37,7 @@ const Login = () => {
                         resetForm()
                         setTimeout(() => {
                             navigate(routes.HOME.path);
-                        }, 3000);
+                        }, 2000);
                     }
                 })
                 .catch(() => {

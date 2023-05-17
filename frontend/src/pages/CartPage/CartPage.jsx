@@ -5,6 +5,7 @@ import {MdOutlineClose} from "react-icons/md";
 import {Link} from "react-router-dom";
 import {routes} from "../../router/routes";
 
+
 const CartPage = () => {
     const {cart, totalPrice} = useSelector(state => state.cartStore)
     const dispatch = useDispatch()
@@ -81,8 +82,9 @@ const CartPage = () => {
                         </tfoot>
                     </table>
                     <Link to={routes.AUTH.path}
-                          className="button button--secondary button--rounded cart-table__btn-checkout">Continue to
-                        checkout</Link>
+                          className="button button--secondary button--rounded cart-table__btn-checkout">
+                        Continue to checkout
+                    </Link>
                 </div>
             </div>
         </div>

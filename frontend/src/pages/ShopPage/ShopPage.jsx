@@ -7,6 +7,7 @@ import {useSearchParams} from "react-router-dom";
 import Pagination from "../../components/Pagination/Pagination";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import SortProducts from "../../components/Sidebar/SortProducts";
+import {ToastContainer} from "react-toastify";
 
 const ShopPage = () => {
     const [count, setCount] = useState();
@@ -62,6 +63,7 @@ const ShopPage = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 };
