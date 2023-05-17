@@ -8,7 +8,8 @@ const UserSchema = new mongoose.Schema({
     image: {type: String, default: null},
     isAdmin: {type: Boolean, default: false},
     isActivated: {type: Boolean, default: false},
-    createdAt: {type: Date, default: () => new Date().getTime()}
+    createdAt: {type: Date, default: () => new Date().getTime()},
+    favorites: {type: Array, default: []}
 })
 
 const UserModel = mongoose.model("users", UserSchema)

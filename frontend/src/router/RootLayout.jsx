@@ -8,7 +8,7 @@ import {restoreCart} from "../store/cartSlice";
 
 axios.interceptors.request.use((config) => {
     if (localStorage.hasOwnProperty(LS_TOKEN)) {
-        config.headers.Authorization = localStorage.getItem(LS_TOKEN)
+        config.headers.authorization = localStorage.getItem(LS_TOKEN)
     }
 
     return config

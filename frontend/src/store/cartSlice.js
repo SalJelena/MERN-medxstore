@@ -78,9 +78,14 @@ const cartSlice = createSlice({
             state.totalPrice = action.payload.reduce((previous, current) => {
                 return previous + current.total
             }, 0)
+        },
+        clearCart: (state, action) => {
+            state.cart = []
+            state.totalPrice = 0
+            cartSlice.caseReducers.updateLocalStorage(state)
         }
     }
 })
 
-export const {addToCart, removeFromCart, restoreCart, changeQuantityCart} = cartSlice.actions
+export const {addToCart, removeFromCart, restoreCart, changeQuantityCart, clearCart} = cartSlice.actions
 export default cartSlice.reducer

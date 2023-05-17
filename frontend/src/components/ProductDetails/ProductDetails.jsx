@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {AiOutlineHeart} from "react-icons/ai";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import ReviewsStars from "../ReviewsStars/ReviewsStars";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../store/cartSlice";
@@ -11,6 +11,7 @@ const ProductDetails = ({product}) => {
     const [quantity, setQuantity] = useState(1);
     const [mainImage, setMainImage] = useState(0)
     const dispatch = useDispatch()
+
 
     const increaseQuantity = () => {
         setQuantity(quantity + 1);
@@ -57,6 +58,7 @@ const ProductDetails = ({product}) => {
     const addToCartHandler = () => {
         dispatch(addToCart({product, quantity}))
         toast.success("Product added to cart.");
+
     }
 
     return (
@@ -67,8 +69,8 @@ const ProductDetails = ({product}) => {
                         product.images?.length !== 0 ?
                             <>
                                 <div className="product__img-holder">
-                                    {product.images && <div
-                                        style={{backgroundImage: "url(" + product.images[mainImage] + ")"}}
+                                    {product?.images && <div
+                                        style={{backgroundImage: "url(" + product?.images[mainImage] + ")"}}
                                         className="product__img"
                                     />}
                                 </div>
@@ -78,7 +80,7 @@ const ProductDetails = ({product}) => {
                             </>
                             :
                             <>
-                                <img src={product.thumbnail} alt={product.title}/>
+                                <img src={product?.thumbnail} alt={product?.title}/>
                             </>
                     }
                 </div>

@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {LS_USER} from "../config/configVars";
+import {LS_CART, LS_USER} from "../config/configVars";
 
 const usersSlice = createSlice({
     name: "users",
@@ -17,6 +17,7 @@ const usersSlice = createSlice({
         logoutUser: (state, action) => {
             state.user = {}
             localStorage.removeItem(LS_USER)
+            localStorage.removeItem(LS_CART)
         }
     }
 })

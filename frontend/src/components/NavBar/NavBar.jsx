@@ -10,8 +10,8 @@ import SearchForm from "../SearchForm/SearchForm";
 import {routes} from "../../router/routes";
 import {useDispatch, useSelector} from "react-redux";
 import {logoutUser} from "../../store/usersSlice";
-import {LS_TOKEN} from "../../config/configVars";
-import {removeFromCart} from "../../store/cartSlice";
+import {LS_CART, LS_TOKEN} from "../../config/configVars";
+import {clearCart, logoutCart, removeFromCart} from "../../store/cartSlice";
 import Cart from "../Cart/Cart";
 import {AiFillCheckCircle} from "react-icons/ai";
 
@@ -38,7 +38,9 @@ const NavBar = () => {
 
     const handleLogout = () => {
         dispatch(logoutUser())
+        dispatch(clearCart())
         localStorage.removeItem(LS_TOKEN)
+        
         navigate(routes.HOME.path)
     }
 
