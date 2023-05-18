@@ -71,7 +71,13 @@ export const routes = {
     CART: {
         path: "/cart", name: "Cart"
     },
-    CHECKOUT: {path: "/cart/checkout", name: "Checkout"}
+    CHECKOUT: {path: "/cart/checkout", name: "Checkout"},
+    PAYMENT_INIT: {path: "/cart/payment", name: "Payment"},
+    ORDER_INIT: {
+        path: "/cart/confirmedOrder",
+        url: "http://localhost:3000/cart/confirmedOrder",
+        name: "Payment"
+    }
 
 };
 

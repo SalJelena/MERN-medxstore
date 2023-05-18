@@ -8,5 +8,6 @@ router.use("/brands", require("./brandsRoutes"))
 router.use("/random", require("./randomItemsRoutes"))
 router.use("/results", require("./searchRoutes"))
 router.use("/contact", require("./contactRoutes"))
+router.use("/cart", require("./cartRoutes"))
 
 module.exports = router;

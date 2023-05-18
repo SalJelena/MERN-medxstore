@@ -12,6 +12,8 @@ import CartPage from "../pages/CartPage/CartPage";
 import CheckoutPage from "../pages/CheckoutPage/CheckoutPage";
 import {AuthUtils} from "../utils/authUtils";
 import {Navigate} from "react-router-dom";
+import PaymentPage from "../pages/PaymentPage/PaymentPage";
+import ConfirmedOrderPage from "../pages/ConfirmedOrderPage/ConfirmedOrderPage";
 
 export const appChildren = [
     {
@@ -65,7 +67,15 @@ export const appChildren = [
     {
         path: routes.CHECKOUT.path,
         element: <PaymentProtect><CheckoutPage/></PaymentProtect>
-    }
+    },
+    {
+        path: routes.PAYMENT_INIT.path,
+        element: <PaymentProtect><PaymentPage/></PaymentProtect>
+    },
+    {
+        path: routes.ORDER_INIT.path,
+        element: <PaymentProtect><ConfirmedOrderPage/></PaymentProtect>
+    },
 
 ]
 
@@ -75,5 +85,4 @@ function PaymentProtect({children}) {
     } else {
         return <Navigate to={routes.AUTH.path}/>
     }
-
 }
