@@ -4,10 +4,12 @@ import {changeQuantityCart, removeFromCart} from "../../store/cartSlice";
 import {MdOutlineClose} from "react-icons/md";
 import {Link} from "react-router-dom";
 import {routes} from "../../router/routes";
+import {AuthUtils} from "../../utils/authUtils";
 
 
 const CartPage = () => {
     const {cart, totalPrice} = useSelector(state => state.cartStore)
+    //const {user} = useSelector(state => state.usersStore)
     const dispatch = useDispatch()
 
     const incrementQuantityHandler = (el, id, count) => {
@@ -17,6 +19,7 @@ const CartPage = () => {
             dispatch(changeQuantityCart({id, count}))
         }
     }
+
 
     const renderProducts = () => {
         return cart.map((el, index) => {
@@ -81,7 +84,7 @@ const CartPage = () => {
                         </tr>
                         </tfoot>
                     </table>
-                    <Link to={routes.AUTH.path}
+                    <Link to={AuthUtils.isLogged() ? routes.CHECKOUT.path : routes.AUTH.path}
                           className="button button--secondary button--rounded cart-table__btn-checkout">
                         Continue to checkout
                     </Link>

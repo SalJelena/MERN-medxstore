@@ -70,7 +70,8 @@ export const routes = {
     },
     CART: {
         path: "/cart", name: "Cart"
-    }
+    },
+    CHECKOUT: {path: "/cart/checkout", name: "Checkout"}
 
 };
 

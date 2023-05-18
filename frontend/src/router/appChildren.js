@@ -9,6 +9,9 @@ import AuthPage from "../pages/AuthPage/AuthPage";
 import ActivationAccountPage from "../pages/ActivationAccountPage/ActivationAccountPage";
 import Cart from "../components/Cart/Cart";
 import CartPage from "../pages/CartPage/CartPage";
+import CheckoutPage from "../pages/CheckoutPage/CheckoutPage";
+import {AuthUtils} from "../utils/authUtils";
+import {Navigate} from "react-router-dom";
 
 export const appChildren = [
     {
@@ -58,6 +61,19 @@ export const appChildren = [
     {
         path: routes.CART.path,
         element: <CartPage/>
+    },
+    {
+        path: routes.CHECKOUT.path,
+        element: <PaymentProtect><CheckoutPage/></PaymentProtect>
     }
 
 ]
+
+function PaymentProtect({children}) {
+    if (AuthUtils.isLogged()) {
+        return children
+    } else {
+        return <Navigate to={routes.AUTH.path}/>
+    }
+
+}
