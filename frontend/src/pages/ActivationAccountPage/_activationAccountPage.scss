@@ -1,0 +1,20 @@
+.activation {
+  padding: 60px 0;
+  min-height: 600px;
+
+  &__title {
+    font-family: $font-headings;
+    font-size: 22px;
+    color: $title-color;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  &__message {
+    font-family: $font-headings;
+    font-size: 18px;
+    color: $title-color;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+}

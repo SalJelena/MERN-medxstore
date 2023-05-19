@@ -26,10 +26,10 @@ const ActivationAccountPage = () => {
 
 
     return (
-        <div>
+        <div className="activation">
             <div className="wrap">
-                <h1>Welcome to activation account</h1>
-                <h4>{message}</h4>
+                <h1 className="activation__title">Welcome to activation account</h1>
+                <h4 className="activation__message">{message}</h4>
             </div>
         </div>
     )

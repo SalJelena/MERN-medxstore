@@ -20,9 +20,9 @@ const PaymentElementComponent = ({ck}) => {
     }
 
     return (
-        <div>
+        <div className="payment__inner">
             <PaymentElement/>
-            <button onClick={handlePay}>Pay</button>
+            <button onClick={handlePay} className="button button--rounded button--secondary payment__btn">Pay</button>
         </div>
     )
 }

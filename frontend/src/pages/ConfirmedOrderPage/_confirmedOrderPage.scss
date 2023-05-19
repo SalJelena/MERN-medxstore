@@ -1,0 +1,62 @@
+.order {
+  padding: 60px 0;
+
+
+  &__title {
+    font-family: $font-headings;
+    margin-bottom: 20px;
+    color: $title-color;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  &__subtitle {
+    display: block;
+    width: 100%;
+    font-family: $font-headings;
+    margin-bottom: 20px;
+    color: $title-color;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  &__details {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+
+  &__checkout {
+    width: 40%;
+    margin-right: 20px;
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__user {
+    width: 80%;
+    margin-left: 40px;
+  }
+
+  &__text {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-family: $font-default;
+    color: $title-color;
+    font-weight: 500;
+  }
+
+  &__subtext {
+    color: $blue;
+    margin-right: 15px;
+  }
+}

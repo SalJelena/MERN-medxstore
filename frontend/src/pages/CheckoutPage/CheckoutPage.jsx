@@ -2,17 +2,17 @@ import React from 'react'
 import {useFormik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import * as Yup from "yup";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {routes} from "../../router/routes";
-import {editAndUpdateUser, setUser} from "../../store/usersSlice";
+import {setUser} from "../../store/usersSlice";
 import UserService from "../../services/userService";
 
 const CheckoutPage = () => {
 
     const {user} = useSelector(state => state.usersStore)
+    const {cart, totalPrice} = useSelector(state => state.cartStore)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
 
     const formik = useFormik({
         initialValues: {
@@ -62,16 +62,32 @@ const CheckoutPage = () => {
         )
     }
 
+    const renderedSummary = () => {
+        return cart.map((el, index) => {
+            return <li key={index} className="checkout__summary-item">
+                <img src={el.thumbnail} alt={el.title} className="checkout__summary-img"/>
+                <Link to={`/product/${el._id}`} className="checkout__summary-product">{el.title}</Link>
+                - <span className="checkout__summary-price">quantity {el.quantity}x{el.price}$</span>
+            </li>
+        })
+    }
+
     return (
 
         <div className="checkout">
             <div className="wrap">
                 <div className="checkout__inner">
-                    <div>
-                        Order Summary
+                    <div className="checkout__summary">
+                        <h2 className="checkout__title">Order Summary</h2>
+                        <ul className="checkout__summary-list">
+                            {renderedSummary()}
+                            <li className="checkout__summary-total">Total Price: <span
+                                className="checkout__summary-number">{totalPrice}$</span></li>
+                        </ul>
                     </div>
-                    <div>
-                        <form onSubmit={formik.handleSubmit}>
+                    <div className="checkout__form-wrap">
+                        <h2 className="checkout__title">Customer & Delivery Information</h2>
+                        <form onSubmit={formik.handleSubmit} className="checkout__form">
 
                             <div className="auth__field-group">
                                 <label htmlFor="firstName" className="auth__label">
@@ -165,7 +181,10 @@ const CheckoutPage = () => {
                                 />
                             </div>
 
-                            <button type="submit">Proceed to Payment</button>
+                            <button type="submit"
+                                    className="button button--rounded button--secondary checkout__form-submit">Proceed
+                                to Payment
+                            </button>
                         </form>
                     </div>
                 </div>
