@@ -2,15 +2,17 @@ import React from 'react'
 import {useFormik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import * as Yup from "yup";
-import {Navigate, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {routes} from "../../router/routes";
-import {setUser} from "../../store/usersSlice";
+import {editAndUpdateUser, setUser} from "../../store/usersSlice";
 
 const CheckoutPage = () => {
 
     const {user} = useSelector(state => state.usersStore)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    let userId = user._id
 
     const formik = useFormik({
         initialValues: {
@@ -35,7 +37,17 @@ const CheckoutPage = () => {
         }),
         enableReinitialize: true,
         onSubmit: (values) => {
-            dispatch(setUser(values))
+            console.log(userId)
+            dispatch(setUser({
+                userId: userId,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                address: values.address,
+                city: values.city,
+                postCode: values.postCode,
+                phone: values.phone,
+                email: values.email
+            }))
             navigate(routes.PAYMENT_INIT.path)
         }
     })

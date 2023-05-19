@@ -18,9 +18,13 @@ const usersSlice = createSlice({
             state.user = {}
             localStorage.removeItem(LS_USER)
             localStorage.removeItem(LS_CART)
+        },
+        editAndUpdateUser: (state, action) => {
+            state.user = action.payload
+            localStorage.setItem(LS_USER, JSON.stringify(action.payload))
         }
     }
 })
 
-export const {setUser, restoreUser, logoutUser} = usersSlice.actions
+export const {setUser, restoreUser, logoutUser, editAndUpdateUser} = usersSlice.actions
 export default usersSlice.reducer

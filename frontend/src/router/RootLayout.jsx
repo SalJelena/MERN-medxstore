@@ -1,7 +1,7 @@
 import {Outlet} from "react-router-dom"
 import axios from "axios";
 import {LS_CART, LS_TOKEN, LS_USER} from "../config/configVars";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {restoreUser} from "../store/usersSlice";
 import {restoreCart} from "../store/cartSlice";
@@ -16,6 +16,7 @@ axios.interceptors.request.use((config) => {
 
 function RootLayout() {
     const dispatch = useDispatch()
+    const [isFinish, setIsFinish] = useState(false);
 
     useEffect(() => {
         if (localStorage.hasOwnProperty(LS_USER)) {
@@ -27,10 +28,12 @@ function RootLayout() {
             dispatch(restoreCart(cart))
         }
 
+        setIsFinish(true)
+
     }, []);
 
 
-    return (
+    return isFinish && (
         <>
             <Outlet/>
         </>
