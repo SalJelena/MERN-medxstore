@@ -31,7 +31,6 @@ const ConfirmedOrderPage = () => {
             postCode: user.postCode
         }
 
-
         isSuccess && CartService.addNewOrder({
             ...userOrder, totalPrice, products
         })
@@ -43,6 +42,7 @@ const ConfirmedOrderPage = () => {
     }, [user, cart])
 
     return (
+
         <div>ConfirmedOrderPage</div>
     )
 }

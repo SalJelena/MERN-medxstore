@@ -15,7 +15,7 @@ const updateUserData = (req, res) => {
         },
         {new: true, projection: {password: 0}}
     )
-        .then(user => console.log(user))
+        .then(user => res.send(user))
         .catch(err => res.status(415).send(err))
 
 

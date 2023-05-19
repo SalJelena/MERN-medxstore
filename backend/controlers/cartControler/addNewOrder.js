@@ -13,7 +13,6 @@ const addNewOrder = (req, res) => {
             res.status(415).send(err.message)
         })
 
-
 }
 
 module.exports = addNewOrder

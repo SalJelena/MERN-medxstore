@@ -283,20 +283,9 @@
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  width: 100%;
-  //max-width: 400px;
   justify-content: space-between;
+  align-items: center;
 
-  &:hover {
-    .nav__user-drop-holder {
-      width: 100%;
-      background-color: $white;
-    }
-
-    .nav__user {
-      color: $yellow;
-    }
-  }
 }
 
 .nav__user {
@@ -304,14 +293,20 @@
   color: $blue-dark2;
   text-decoration: none;
   transition: 0.3s ease-in;
-  //display: flex;
-  //align-items: center;
-  //justify-content: center;
-  right: 0;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $white;
+  background-color: $white;
+  border-radius: 20px;
+  height: 30px;
+  margin: 0 5px;
+  padding: 8px;
 
   &:hover {
     color: $yellow;
+    background-color: transparent;
+    border-color: $yellow;
   }
 
   &-name {
@@ -324,39 +319,6 @@
   }
 }
 
-.nav__user-drop-holder {
-  width: 0;
-  right: 0;
-  position: relative;
-  transition: width 0.3s ease;
-  background-color: $white;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.nav__user-dropdown {
-  position: relative;
-  z-index: 90;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-.nav__user-item {
-  font-family: $font-default;
-  color: $title-color;
-  font-size: 12px;
-  text-transform: uppercase;
-  transition: 0.3s ease;
-  font-weight: 600;
-  padding: 10px 8px;
-
-  &:hover {
-    color: $blue;
-  }
-}
 
 .nav__cart-checkmark {
   position: absolute;

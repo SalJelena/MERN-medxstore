@@ -74,33 +74,31 @@ const NavBar = () => {
                             </div>
 
                             <div className="nav__control nav__control-user">
-                                <div className={`nav__user-drop-holder ${dropVisible ? "active" : ""}`}>
-                                    <div className="nav__user-dropdown">
-                                        {user.hasOwnProperty("email") ?
-                                            <>
-                                                <Link to={routes.DASHBOARD.path} className="nav__user-item">My
-                                                    Account</Link>
-                                                <button className="nav__user-item" onClick={handleLogout}>Logout
-                                                </button>
-                                            </>
-                                            :
-                                            <>
-                                                <Link to={routes.AUTH.path} className="nav__user-item">Login</Link>
-                                                <Link to={routes.AUTH.path} className="nav__user-item">Register</Link>
-                                            </>
-                                        }
-                                    </div>
-                                </div>
-                                <button type="button" className="nav__user">
-                                    {user.hasOwnProperty("email") ?
-                                        <span className="nav__user-name">{user.firstName}</span>
-                                        :
-                                        null
-                                    }
-                                    <BsFillPersonFill/>
-                                </button>
-                            </div>
 
+                                {
+                                    user.hasOwnProperty("email") ?
+                                        <>
+                                            <button className="nav__user" onClick={handleLogout}>
+                                                <span className="nav__user-name">Logout</span>
+                                            </button>
+                                            <Link to={routes.DASHBOARD.path} className="nav__user">
+                                                <span className="nav__user-name">My Account</span>
+                                                <BsFillPersonFill/>
+                                            </Link>
+                                        </>
+                                        :
+                                        <Link to={routes.AUTH.path} className="nav__user">
+                                            {user.hasOwnProperty("email") ?
+                                                <span className="nav__user-name">{user.firstName}</span>
+                                                :
+                                                <span className="nav__user-name">Sign in</span>
+                                            }
+                                            <BsFillPersonFill/>
+                                        </Link>
+
+                                }
+
+                            </div>
 
                             <div className="nav__control nav__cart">
                                 <button className="nav__btn-control" onClick={handleCartOpen}>
