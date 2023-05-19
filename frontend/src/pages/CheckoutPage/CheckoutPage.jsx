@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import {useNavigate} from "react-router-dom";
 import {routes} from "../../router/routes";
 import {editAndUpdateUser, setUser} from "../../store/usersSlice";
+import UserService from "../../services/userService";
 
 const CheckoutPage = () => {
 
@@ -12,7 +13,6 @@ const CheckoutPage = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    let userId = user._id
 
     const formik = useFormik({
         initialValues: {
@@ -37,9 +37,9 @@ const CheckoutPage = () => {
         }),
         enableReinitialize: true,
         onSubmit: (values) => {
-            console.log(userId)
-            dispatch(setUser({
-                userId: userId,
+
+            UserService.updateUserData({
+                ...user,
                 firstName: values.firstName,
                 lastName: values.lastName,
                 address: values.address,
@@ -47,8 +47,12 @@ const CheckoutPage = () => {
                 postCode: values.postCode,
                 phone: values.phone,
                 email: values.email
-            }))
+            })
+                .then(res => dispatch(setUser(res.data)))
+                .catch(err => console.log(err))
+
             navigate(routes.PAYMENT_INIT.path)
+
         }
     })
 

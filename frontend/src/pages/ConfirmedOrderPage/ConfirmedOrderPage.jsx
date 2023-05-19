@@ -20,9 +20,20 @@ const ConfirmedOrderPage = () => {
             }
         })
 
+        let userOrder = {
+            userId: user._id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            phone: user.phone,
+            address: user.address,
+            city: user.city,
+            postCode: user.postCode
+        }
+
 
         isSuccess && CartService.addNewOrder({
-            ...user, totalPrice, products
+            ...userOrder, totalPrice, products
         })
             .then(res => {
                 console.log(res.data)

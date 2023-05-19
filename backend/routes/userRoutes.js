@@ -13,5 +13,6 @@ router.post("/login", require("../controlers/UserControler/loginUser"))
 router.put("/activate/:id", require("../controlers/UserControler/activateAccount"))
 router.put("/addToFavorite", verifyToken, require("../controlers/UserControler/addToFavorite"))
 router.put("/removeFromFavorite", verifyToken, require("../controlers/UserControler/removeFromFavorite"))
+router.put("/updateUser", verifyToken, require("../controlers/UserControler/updateUserData"))
 
 module.exports = router;

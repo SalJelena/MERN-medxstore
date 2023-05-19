@@ -1,7 +1,6 @@
 const OrderModel = require("../../model/orderModel");
 const addNewOrder = (req, res) => {
 
-    //console.log(req.body)
 
     const newOrder = new OrderModel(req.body)
 
