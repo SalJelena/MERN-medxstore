@@ -16,8 +16,8 @@ const PaymentPage = () => {
 
     useEffect(() => {
 
-        totalPrice > 0 && CartService.paymentInit({totalPrice, currency: "usd"})
-            .then(res => setCk(res.data.client_secret))
+        totalPrice > 0 && CartService.paymentInit({totalPrice: totalPrice * 100, currency: "usd"})
+            .then(res => setCk(res.data))
             .catch(err => console.log(err))
 
     }, [totalPrice]);

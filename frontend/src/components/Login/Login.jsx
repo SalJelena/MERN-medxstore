@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useFormik} from "formik";
 import * as Yup from "yup";
 import UserService from "../../services/userService";
@@ -8,8 +8,10 @@ import {setUser} from "../../store/usersSlice";
 import {toast, ToastContainer} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 import {routes} from "../../router/routes";
+import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
 
 const Login = () => {
+    const [passwordType, setPasswordType] = useState("password")
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -29,7 +31,7 @@ const Login = () => {
             UserService.loginUser(values)
                 .then((res) => {
                     if (res.status === 201) {
-                        console.log(res.data.msg)
+                        toast.error(res.data.msg)
                     } else {
                         dispatch(setUser(res.data.user))
                         localStorage.setItem(LS_TOKEN, res.data.token);
@@ -48,8 +50,12 @@ const Login = () => {
 
     const showError = (name) => {
         return formik.errors[name] && formik.touched[name] && (
-            <div className="form__error">{formik.errors[name]}</div>
+            <span className="form__error">{formik.errors[name]}</span>
         )
+    }
+
+    const togglePassword = () => {
+        passwordType === "password" ? setPasswordType("text") : setPasswordType("password")
     }
 
     return (
@@ -69,18 +75,26 @@ const Login = () => {
                     />
                 </div>
 
-                <div className="auth__field-group">
+                <div className="auth__field-group auth__input-pass">
                     <label htmlFor="password" className="auth__label">
                         Password {showError("password")}
                     </label>
                     <input
-                        type="text"
+                        type={passwordType}
                         name="password"
                         id="password"
                         className="auth__input"
                         onChange={formik.handleChange}
                         value={formik.values.password}
                     />
+
+                    <button type="button" className="auth__pass-icon" onClick={togglePassword}>
+                        {passwordType === "password" ?
+                            <span><AiOutlineEyeInvisible/></span>
+                            :
+                            <span><AiOutlineEye/></span>
+                        }
+                    </button>
                 </div>
                 <button type="submit" className="auth__submit button button--rounded button--primary">Submit</button>
             </form>

@@ -4,8 +4,10 @@ import * as Yup from "yup";
 import UserService from "../../services/userService";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
 
 const Register = ({setSelectedTab}) => {
+    const [passwordType, setPasswordType] = useState("password")
 
     const notifyError = () => {
         toast.error('User with this email address already exists.', {
@@ -71,6 +73,10 @@ const Register = ({setSelectedTab}) => {
         )
     }
 
+    const togglePassword = () => {
+        passwordType === "password" ? setPasswordType("text") : setPasswordType("password")
+    }
+
     return (
         <div className="auth__inner-wrap register__wrap">
             <form onSubmit={formik.handleSubmit} className="auth__form">
@@ -117,7 +123,7 @@ const Register = ({setSelectedTab}) => {
                     />
                 </div>
 
-                <div className="auth__field-group">
+                <div className="auth__field-group auth__input-pass">
                     <label htmlFor="password" className="auth__label">
                         Password {showError("password")}
                     </label>
@@ -129,6 +135,13 @@ const Register = ({setSelectedTab}) => {
                         onChange={formik.handleChange}
                         value={formik.values.password}
                     />
+                    <button type="button" className="auth__pass-icon" onClick={togglePassword}>
+                        {passwordType === "password" ?
+                            <span><AiOutlineEyeInvisible/></span>
+                            :
+                            <span><AiOutlineEye/></span>
+                        }
+                    </button>
                 </div>
 
 

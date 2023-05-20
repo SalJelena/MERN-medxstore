@@ -98,6 +98,18 @@
     font-size: 14px;
   }
 
+  &__input-pass {
+    position: relative;
+  }
+
+  &__pass-icon {
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+    font-size: 20px;
+    color: $title-color;
+  }
+
 
 }
 
