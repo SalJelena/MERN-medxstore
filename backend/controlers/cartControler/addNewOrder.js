@@ -1,16 +1,21 @@
 const OrderModel = require("../../model/orderModel");
+
+
 const addNewOrder = (req, res) => {
 
+    let reqBody = {...req.body}
 
-    const newOrder = new OrderModel(req.body)
+
+    const newOrder = new OrderModel(reqBody)
 
     newOrder.save()
         .then((order) => {
             res.send(order)
         })
-        .catch((err) => {
-            console.log(err)
-            res.status(415).send(err.message)
+
+        .catch((error) => {
+            console.log(error)
+            res.status(415).send(error.message)
         })
 
 }

@@ -19,6 +19,7 @@ function RootLayout() {
     const [isFinish, setIsFinish] = useState(false);
 
     useEffect(() => {
+        
         if (localStorage.hasOwnProperty(LS_USER)) {
             let user = JSON.parse(localStorage.getItem(LS_USER))
             dispatch(restoreUser(user))

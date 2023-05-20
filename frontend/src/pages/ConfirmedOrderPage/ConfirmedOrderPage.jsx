@@ -1,16 +1,23 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import CartService from "../../services/cartService";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Link, useSearchParams} from "react-router-dom";
+import {clearCart} from "../../store/cartSlice";
+
 
 const ConfirmedOrderPage = () => {
+    const [orderedInfo, setOrderedInfo] = useState(null)
+
     const [searchParams] = useSearchParams()
     const {user} = useSelector(state => state.usersStore)
     const {cart, totalPrice} = useSelector(state => state.cartStore)
+    const dispatch = useDispatch()
 
     const isSuccess = searchParams.get("redirect_status") === "succeeded"
+    let isFinish = true
 
     useEffect(() => {
+
         let products = cart.map(el => {
             return {
                 productId: el._id,
@@ -31,20 +38,25 @@ const ConfirmedOrderPage = () => {
             postCode: user.postCode
         }
 
-        isSuccess && CartService.addNewOrder({
+        isFinish && isSuccess && CartService.addNewOrder({
             ...userOrder, totalPrice, products
         })
             .then(res => {
-                console.log(res.data)
+                setOrderedInfo(res.data)
+                dispatch(clearCart())
             })
             .catch(error => console.log(error))
 
-    }, [user, cart])
+        return () => {
+            isFinish = false
+        }
+
+    }, [])
+
 
     const renderedSummary = () => {
-        return cart.map((el, index) => {
+        return orderedInfo?.products?.map((el, index) => {
             return <li key={index} className="checkout__summary-item">
-                <img src={el.thumbnail} alt={el.title} className="checkout__summary-img"/>
                 <Link to={`/product/${el._id}`} className="checkout__summary-product">{el.title}</Link>
                 - <span className="checkout__summary-price">quantity {el.quantity}x{el.price}$</span>
             </li>
@@ -80,7 +92,8 @@ const ConfirmedOrderPage = () => {
                                         <ul className="checkout__summary-list">
                                             {renderedSummary()}
                                             <li className="checkout__summary-total">Total Price: <span
-                                                className="checkout__summary-number">{totalPrice}$</span></li>
+                                                className="checkout__summary-number">{orderedInfo?.totalPrice}$</span>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div className="order__user">
