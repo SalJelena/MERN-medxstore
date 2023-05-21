@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {BsArrowRight} from "react-icons/bs";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {AiFillHeart, AiOutlineHeart} from "react-icons/ai";
 import ReviewsStars from "../ReviewsStars/ReviewsStars";
 import {addToCart} from "../../store/cartSlice";
@@ -9,15 +9,23 @@ import {toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import UserService from "../../services/userService";
 import {setUser} from "../../store/usersSlice";
+import {AuthUtils} from "../../utils/authUtils";
+import {routes} from "../../router/routes";
 
 const ProductCard = ({product}) => {
     const {user} = useSelector(state => state.usersStore)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const addFavoriteHandler = () => {
-        UserService.addToFavorite({productId: product._id, userId: user._id})
-            .then(res => dispatch(setUser(res.data)))
-            .catch(err => console.log(err))
+        AuthUtils.isLogged() ? (
+                UserService.addToFavorite({productId: product._id, userId: user._id})
+                    .then(res => dispatch(setUser(res.data)))
+                    .catch(err => console.log(err))
+            )
+            :
+            navigate(routes.AUTH.path)
+
     }
 
     const removeFavoriteHandler = () => {

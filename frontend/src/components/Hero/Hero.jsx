@@ -45,19 +45,23 @@ const Hero = () => {
 
     return (
         <div className='hero'>
-            <Swiper
-                modules={[Navigation, Autoplay]}
-                spaceBetween={0}
-                slidesPerView={1}
-                loop={true}
-                autoplay={{delay: 5000}}
-                navigation={true}
-                onSwiper={(swiper) => console.log()}
-                onSlideChange={() => console.log()}
-                className="hero__slider"
-            >
-                {renderedSlides()}
-            </Swiper>
+            <div className="wrap">
+                <div className="hero__inner">
+                    <Swiper
+                        modules={[Navigation, Autoplay]}
+                        spaceBetween={0}
+                        slidesPerView={1}
+                        loop={true}
+                        autoplay={{delay: 5000}}
+                        navigation={true}
+                        onSwiper={(swiper) => console.log()}
+                        onSlideChange={() => console.log()}
+                        className="hero__slider"
+                    >
+                        {renderedSlides()}
+                    </Swiper>
+                </div>
+            </div>
         </div>
     )
 }
