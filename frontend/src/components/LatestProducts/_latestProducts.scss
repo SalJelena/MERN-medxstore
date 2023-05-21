@@ -1,15 +1,9 @@
 .products-list {
   margin-bottom: 60px;
 
-  @media screen and (min-width: 120px) {
+  @media screen and (min-width: 330px) {
     .swiper-container {
-      width: 120px !important;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    .swiper-container {
-      width: 768px !important;
+      width: 330px !important;
     }
   }
 
@@ -44,4 +38,16 @@
     z-index: 20 !important;
   }
 
+  @include media-breakpoint-down(sm) {
+    .card__control {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      button {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  
 }

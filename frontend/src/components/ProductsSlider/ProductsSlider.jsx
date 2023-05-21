@@ -30,12 +30,8 @@ const ProductsSlider = () => {
         <div>
             <Swiper
                 breakpoints={{
-                    120: {
-                        width: 120,
-                        slidesPerView: 1,
-                    },
-                    768: {
-                        width: 768,
+                    330: {
+                        width: 330,
                         slidesPerView: 2,
                     },
                     992: {
