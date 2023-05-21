@@ -35,7 +35,7 @@ const Nav = ({handleMobileMenu, mobileMenuVisible, handleSearchOpen, handleCartO
                 </Link>
 
                 <div className="nav__inner">
-                    <NavItems onMobileMenu={mobileMenuVisible}/>
+                    <NavItems onMobileMenu={mobileMenuVisible} handleMobileMenu={handleMobileMenu}/>
                     <div className="nav__controls">
 
                         <div className="nav__control">

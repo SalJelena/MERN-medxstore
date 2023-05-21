@@ -1,11 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import {mainNavbarItem} from "../../router/routes";
 import {NavLink} from "react-router-dom";
 import NavDropdown from "./NavDropdown";
 import {BsChevronDown} from "react-icons/bs";
 import {MdOutlineClose} from "react-icons/md";
 
-const NavItems = ({onMobileMenu}) => {
+const NavItems = ({onMobileMenu, handleMobileMenu}) => {
+    const [dropdownMobile, setDropdownMobile] = useState(false)
+
+    const handleDropdownMobile = () => {
+        !dropdownMobile ? setDropdownMobile(true) : setDropdownMobile(false)
+    }
+
     const renderedListItem = () => {
         return mainNavbarItem.map((item, index) => {
             return (
@@ -13,26 +19,28 @@ const NavItems = ({onMobileMenu}) => {
 
                     {item.hasOwnProperty("subitem") ?
                         (
-                            <button type="button" className="nav__link">{item.name}
-                                <span><BsChevronDown/></span>
-                            </button>
+                            <>
+                                <button type="button" className="nav__link" onClick={handleDropdownMobile}>{item.name}
+                                    <span><BsChevronDown/></span>
+                                </button>
+                                <NavDropdown items={item.subitem} dropdownMobile={dropdownMobile}/>
+                            </>
                         )
                         :
                         (
                             <NavLink to={item.path} className="nav__link">{item.name}</NavLink>
                         )
                     }
-                    {item.hasOwnProperty("subitem") ? (
-                        <NavDropdown items={item.subitem}/>
-                    ) : null}
                 </li>
             );
         });
     };
 
     return (
-        <ul className={`nav__list ${onMobileMenu ? `nav__list--active` : ""} `}>
-            {onMobileMenu ? <button type="button" className="nav__"><MdOutlineClose/></button> : null}
+        <ul className={`nav__list ${onMobileMenu ? `nav__list--active` : ""}`}>
+            <li className="nav__mobile-close">
+                {onMobileMenu ? <button type="button" onClick={handleMobileMenu}><MdOutlineClose/></button> : null}
+            </li>
             {renderedListItem()}
         </ul>
     );
