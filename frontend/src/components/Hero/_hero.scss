@@ -1,11 +1,5 @@
-
 .hero {
-  //height: 100vh;
   background-color: $blue-light3;
-
-  //@include media-breakpoint-down(md) {
-  //  height: unset;
-  //}
 }
 
 .hero__slider {
@@ -59,6 +53,7 @@
 
   @include media-breakpoint-down(md) {
     font-size: 50px;
+    margin-bottom: 20px;
   }
 
   @include media-breakpoint-down(sm) {
@@ -189,19 +184,5 @@
     }
   }
 
-
-  .swiper-button-prev, .swiper-button-next {
-    @include media-breakpoint-down(md) {
-      bottom: unset !important;
-      top: 50px !important;
-      left: 20px !important;
-    }
-  }
-
-  .swiper-button-next {
-    @include media-breakpoint-down(md) {
-      left: 70px !important;
-    }
-  }
 
 }

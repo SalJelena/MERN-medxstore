@@ -6,7 +6,6 @@ import 'swiper/css/navigation';
 import {HERO_SLIDER} from "../../config/heroSliderData";
 import {useSwiper} from "swiper/react";
 
-
 const Hero = () => {
     const swiper = useSwiper()
 
