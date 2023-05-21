@@ -1,6 +1,10 @@
 .shop__container {
   display: flex;
   align-items: flex-start;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
 }
 
 .shop__inner {

@@ -33,6 +33,10 @@
     height: 550px;
   }
 
+  @include media-breakpoint-down(sm) {
+    height: 100%;
+  }
+
 }
 
 .hero__img {

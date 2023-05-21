@@ -2,10 +2,6 @@
   width: 100%;
   min-height: 400px;
   position: relative;
-
-  @include media-breakpoint-down(md) {
-    min-height: 200px;
-  }
 }
 
 .heading__inner {

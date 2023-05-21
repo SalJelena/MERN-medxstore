@@ -62,6 +62,10 @@
     color: $main-color;
   }
 
+  @include media-breakpoint-down(md) {
+    left: 10px;
+  }
+
 }
 
 .card__img-holder {
@@ -125,4 +129,12 @@
 
 .card__cart-btn {
   position: relative;
+
+  @include media-breakpoint-down(md) {
+    color: $white;
+
+    &::after {
+      width: 100%;
+    }
+  }
 }
