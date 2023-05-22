@@ -5,9 +5,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import {HERO_SLIDER} from "../../config/heroSliderData";
 import {useSwiper} from "swiper/react";
+import {routes} from "../../router/routes";
+import {useNavigate} from "react-router-dom";
 
 const Hero = () => {
     const swiper = useSwiper()
+    const navigate = useNavigate()
 
     const renderedSlides = () => {
         return HERO_SLIDER.map((el, index) => {
@@ -21,7 +24,8 @@ const Hero = () => {
                         <div className="hero__left">
                             <h3 className="hero__subtitle">{el.subtitle}</h3>
                             <p className="hero__subtitle-text">{el.desc}</p>
-                            <button className="button button--secondary button--rounded">
+                            <button className="button button--secondary button--rounded"
+                                    onClick={() => navigate(routes.SHOP.path)}>
                                 {el.btnText}
                             </button>
                         </div>

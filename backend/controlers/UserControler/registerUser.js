@@ -18,7 +18,7 @@ const registerUser = async (req, res) => {
 
         newUser.save()
             .then(user => {
-                let verifyLink = FE_URL + "activate/" + user._id
+                let verifyLink = FE_URL + "user/activate/" + user._id
 
                 sendActivationMail(email, verifyLink)
                     .then(data => {
