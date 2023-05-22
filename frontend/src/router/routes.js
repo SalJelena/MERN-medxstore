@@ -77,7 +77,7 @@ export const routes = {
     PAYMENT_INIT: {path: "/cart/payment", name: "Payment"},
     ORDER_INIT: {
         path: "/cart/confirmedOrder",
-        url: BASE_URL_FE + "/confirmedOrder",
+        url: BASE_URL_FE + "/cart/confirmedOrder",
         name: "Payment"
     }
 
