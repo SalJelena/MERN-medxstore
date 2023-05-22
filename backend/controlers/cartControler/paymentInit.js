@@ -1,8 +1,8 @@
-const sk = "sk_test_51N944LINyKa3hdNSkxcoVjftPa7AVIIzEC0f7d5V9RnXvFR6HJukSOVuk8awyFKP7z817bHk34PV7qlTvhoGDqIB00p7dMHk4R"
+const sk = process.env.SK
 const stripe = require("stripe")(sk)
 
 const paymentInit = async (req, res) => {
-    
+
     try {
 
         const payment = await stripe.paymentIntents.create({

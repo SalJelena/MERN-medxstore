@@ -1,13 +1,15 @@
 const nodemailer = require("nodemailer")
 const {activationMailTemplate} = require("../mailTemplates/mailTemplate");
 
+const password = process.env.MAIL_PASSWORD
+
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
     secure: false,
     auth: {
         user: "ecommercesalopek@gmail.com",
-        pass: "jerzqkjscbotfcdj"
+        pass: password
     }
 })
 

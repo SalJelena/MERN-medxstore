@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-const {privateKey} = require("../config/configVars");
+const privateKey = process.env.JWT_KEY
 
 const verifyToken = (req, res, next) => {
     if (req.headers.authorization) {

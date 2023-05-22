@@ -1,8 +1,8 @@
 const UserModel = require("../../model/userModel")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
-const {privateKey} = require("../../config/configVars");
 
+const privateKey = process.env.JWT_KEY
 
 const loginUser = (req, res) => {
     const {email, password} = req.body
