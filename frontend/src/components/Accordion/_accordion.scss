@@ -85,11 +85,21 @@
     padding: 15px 0;
     cursor: pointer;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
-    span {
+    &-name {
+      @include media-breakpoint-down(md) {
+        max-width: 250px;
+      }
+    }
+
+    &-icon {
       position: absolute;
       right: 0;
-      bottom: 10px;
+      bottom: 3px;
       font-size: 20px;
     }
   }

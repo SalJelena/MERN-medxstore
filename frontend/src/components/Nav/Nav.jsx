@@ -11,7 +11,15 @@ import {clearCart} from "../../store/cartSlice";
 import {LS_TOKEN} from "../../config/configVars";
 import {useDispatch} from "react-redux";
 
-const Nav = ({handleMobileMenu, mobileMenuVisible, handleSearchOpen, handleCartOpen, user, cart}) => {
+const Nav = ({
+                 handleMobileMenu,
+                 mobileMenuVisible,
+                 handleSearchOpen,
+                 setMobileMenuVisible,
+                 handleCartOpen,
+                 user,
+                 cart
+             }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -35,7 +43,8 @@ const Nav = ({handleMobileMenu, mobileMenuVisible, handleSearchOpen, handleCartO
                 </Link>
 
                 <div className="nav__inner">
-                    <NavItems onMobileMenu={mobileMenuVisible} handleMobileMenu={handleMobileMenu}/>
+                    <NavItems onMobileMenu={mobileMenuVisible} setMobileMenuVisible={setMobileMenuVisible}
+                              handleMobileMenu={handleMobileMenu}/>
                     <div className="nav__controls">
 
                         <div className="nav__control">
@@ -50,7 +59,7 @@ const Nav = ({handleMobileMenu, mobileMenuVisible, handleSearchOpen, handleCartO
                             {
                                 user.hasOwnProperty("email") ?
                                     <>
-                                        <button className="nav__user" onClick={handleLogout}>
+                                        <button className="nav__user nav__user-logout" onClick={handleLogout}>
                                             <span className="nav__user-name">Logout</span>
                                         </button>
                                         <Link to={routes.DASHBOARD.path} className="nav__user">

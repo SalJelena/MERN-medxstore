@@ -33,20 +33,24 @@ const CartPage = () => {
                 <td className="cart-table__data cart-table__data-price">
                     <span>{el.price}$</span>
                 </td>
+
                 <td className="cart-table__data">
-                    <div className="product__quantity-control">
+
+                    <div className="cart__table-btns">
                         <button
                             onClick={() => incrementQuantityHandler(el, el._id, -1)}
-                            className="product__quantity-btn"
+                            className="cart__table-btn"
                         >
                             -
                         </button>
-                        <span className="product__quantity">{el.quantity}</span>
+                        <span className="cart__table-btn-name">{el.quantity}</span>
                         <button onClick={() => incrementQuantityHandler(el, el._id, 1)}
-                                className="product__quantity-btn">+
+                                className="cart__table-btn">+
                         </button>
                     </div>
+
                 </td>
+
                 <td className="cart-table__data cart-table__data-price">
                     <span>{el.total}$</span>
                 </td>

@@ -19,6 +19,7 @@
     @include media-breakpoint-down(md) {
       margin-bottom: 40px;
       width: 100%;
+      padding-right: 0;
     }
   }
 
@@ -87,5 +88,35 @@
   &__form-submit {
     font-size: 14px;
     margin-top: 40px;
+  }
+
+  &__disclaimer {
+    margin-top: 20px;
+    background: rgba(#ffebbb, 0.4);
+    border-radius: 20px;
+    padding: 20px 10px;
+    display: flex;
+    align-items: flex-start;
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+  }
+
+  &__exclaimer {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  &__explanation {
+    font-family: $font-default;
+    font-size: 15px;
+    line-height: 17px;
+
+    a {
+      color: $blue-dark2;
+      text-decoration: underline;
+    }
+
   }
 }

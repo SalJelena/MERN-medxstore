@@ -5,6 +5,10 @@
 .cart-table__holder {
   width: 100%;
   padding: 0 40px;
+
+  @include media-breakpoint-down(sm) {
+    padding: 0;
+  }
 }
 
 .cart-table {
@@ -18,6 +22,12 @@
     font-weight: 500;
     padding-bottom: 20px;
     text-align: left;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+      padding-bottom: 10px;
+      margin-right: 2%;
+    }
   }
 
   &__row {
@@ -29,25 +39,38 @@
     vertical-align: middle;
     padding: 20px 0;
 
-    .product__quantity-control {
-      width: 150px;
+    @include media-breakpoint-down(sm) {
+      padding: 20px 2%;
     }
+
   }
 
   &__img {
     width: 70px;
+
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      max-width: 45px;
+    }
   }
 
   &__data-title {
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.8px;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 14px;
+    }
   }
 
   &__data-price {
     color: $blue;
     font-size: 20px;
     font-weight: 600;
+    @include media-breakpoint-down(sm) {
+      font-size: 15px;
+    }
   }
 
   &__foot-row {
@@ -63,5 +86,41 @@
   &__btn-checkout {
     font-size: 14px;
   }
+
+}
+
+.cart__table-btns {
+  border: 1px solid $black;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100px;
+}
+
+.cart__table-btn {
+  height: 50px;
+  padding: 0 10px;
+
+  @include media-breakpoint-down(sm) {
+    height: 30px;
+  }
+}
+
+.cart__table-btn-name {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: $title-color;
+
+  @include media-breakpoint-down(sm) {
+    width: 20px;
+    height: 30px;
+    font-size: 14px;
+  }
+
 }
 

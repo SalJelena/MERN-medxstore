@@ -32,7 +32,9 @@ const NavBar = () => {
     return (
         <>
             <Nav handleMobileMenu={handleMobileMenu} mobileMenuVisible={mobileMenuVisible}
-                 handleSearchOpen={handleSearchOpen} handleCartOpen={handleCartOpen} user={user} cart={cart}/>
+                 handleSearchOpen={handleSearchOpen} handleCartOpen={handleCartOpen}
+                 setMobileMenuVisible={setMobileMenuVisible} user={user} cart={cart}/>
+
             <SearchForm searchOpened={searchOpened} onOpen={handleSearchOpen}/>
             <Cart cartModalOpened={cartModalOpened} onOpen={handleCartOpen}/>
         </>

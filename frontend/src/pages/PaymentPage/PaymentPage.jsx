@@ -5,6 +5,7 @@ import {loadStripe} from "@stripe/stripe-js"
 import {Elements} from "@stripe/react-stripe-js";
 import PaymentElementComponent from "../../components/PaymentElementComponent/PaymentElementComponent";
 import {Link} from "react-router-dom";
+import {BiMessageSquareError} from "react-icons/bi";
 
 const pk = "pk_test_51N944LINyKa3hdNSD0Vtav0aLfPRFCGZDcgBGmAspKF1qy6Nd7nXCGBKEytce32XiKQKlzehdNNwBl6xnPkUh7N300KpHSJNkG"
 const stripe = loadStripe(pk)
@@ -44,6 +45,17 @@ const PaymentPage = () => {
                             <li className="checkout__summary-total">Total Price: <span
                                 className="checkout__summary-number">{totalPrice}$</span></li>
                         </ul>
+                        <div className="checkout__disclaimer">
+                            <span className="checkout__exclaimer">
+                                <BiMessageSquareError/>
+                            </span>
+                            <p className="checkout__explanation">Disclaimer, this is for developer purposes only. No
+                                real
+                                items will be sold. Please do not use real credit card for payments, only Stripe test
+                                cards, which can be found <a
+                                    href="https://stripe.com/docs/testing#international-cards" target="_blank"
+                                    rel="noreferrer">here.</a></p>
+                        </div>
                     </div>
                     {
                         ck && <Elements stripe={stripe} options={{clientSecret: ck}}>

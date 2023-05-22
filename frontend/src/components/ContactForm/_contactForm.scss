@@ -31,6 +31,11 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 30px;
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
 
 .form__contact {
@@ -39,10 +44,18 @@
 
 .form__input {
   width: 100%;
+
+  @include media-breakpoint-down(md) {
+    margin-bottom: 15px;
+  }
 }
 
 .form__input--separated {
   margin-right: 20px;
+
+  @include media-breakpoint-down(md) {
+    margin-right: 0;
+  }
 }
 
 .form__label {

@@ -6,6 +6,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {routes} from "../../router/routes";
 import {setUser} from "../../store/usersSlice";
 import UserService from "../../services/userService";
+import {BiMessageSquareError} from "react-icons/bi";
 
 const CheckoutPage = () => {
 
@@ -84,6 +85,17 @@ const CheckoutPage = () => {
                             <li className="checkout__summary-total">Total Price: <span
                                 className="checkout__summary-number">{totalPrice}$</span></li>
                         </ul>
+                        <div className="checkout__disclaimer">
+                            <span className="checkout__exclaimer">
+                                <BiMessageSquareError/>
+                            </span>
+                            <p className="checkout__explanation">Disclaimer, this is for developer purposes only. No
+                                real
+                                items will be sold. Please do not use real credit card for payments, only Stripe test
+                                cards, which can be found <a
+                                    href="https://stripe.com/docs/testing#international-cards" target="_blank"
+                                    rel="noreferrer">here.</a></p>
+                        </div>
                     </div>
                     <div className="checkout__form-wrap">
                         <h2 className="checkout__title">Customer & Delivery Information</h2>

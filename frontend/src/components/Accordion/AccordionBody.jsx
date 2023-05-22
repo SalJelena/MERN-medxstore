@@ -19,7 +19,8 @@ const Accordion = () => {
                         onClick={() => setExpanded(isOpen ? false : index)}
                         className="accordion__header"
                     >
-                        {el.title} <span><MdOutlineKeyboardArrowDown/></span>
+                        <span className="acccordion__header-name">{el.title}</span> <span
+                        className="acccordion__header-icon"><MdOutlineKeyboardArrowDown/></span>
                     </motion.header>
                     <AnimatePresence initial={false}>
                         {isOpen && (

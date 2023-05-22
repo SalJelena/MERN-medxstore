@@ -7,13 +7,13 @@ import {ToastContainer} from "react-toastify";
 
 const HomePage = () => {
     return (
-        <>
+        <div>
             <Hero/>
             <TextPanel/>
             <LatestProducts/>
             <AccordionPanel/>
             <ToastContainer/>
-        </>
+        </div>
     )
 }
 

@@ -8,6 +8,8 @@ import Pagination from "../../components/Pagination/Pagination";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import SortProducts from "../../components/Sidebar/SortProducts";
 import {ToastContainer} from "react-toastify";
+import {setVisibleLoader} from "../../store/loaderSlice";
+import Loader from "../../components/Loader/Loader";
 
 const ShopPage = () => {
     const [count, setCount] = useState();
@@ -28,6 +30,8 @@ const ShopPage = () => {
     useEffect(() => {
         let req = null
 
+        dispatch(setVisibleLoader(true))
+
         if (category) {
             setSearchParams({category, limit, page})
         } else if (brand) {
@@ -44,11 +48,13 @@ const ShopPage = () => {
             req = ProductService.paginationProducts(sort, limit, page)
         }
 
+
         req.then((res) => {
             dispatch(setProducts(res.data.products))
             setCount(res.data.count)
         })
-            .catch((error) => console.log(error));
+            .catch((error) => console.log(error))
+            .finally(() => dispatch(setVisibleLoader(false)))
     }, [searchParams]);
 
 
@@ -58,6 +64,7 @@ const ShopPage = () => {
                 <div className="shop__container">
                     <Sidebar/>
                     <div className="shop__inner">
+                        <Loader/>
                         <ProductsView products={products}/>
                         <Pagination setSearchParams={setSearchParams} limit={limit} page={page} count={count}/>
                     </div>

@@ -24,6 +24,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    margin-top: 30px;
 
     @include media-breakpoint-down(md) {
       flex-direction: column;
@@ -45,6 +46,10 @@
   &__user {
     width: 80%;
     margin-left: 40px;
+
+    @include media-breakpoint-down(md) {
+      margin-left: 0;
+    }
   }
 
   &__text {

@@ -4,8 +4,9 @@ import {NavLink} from "react-router-dom";
 import NavDropdown from "./NavDropdown";
 import {BsChevronDown} from "react-icons/bs";
 import {MdOutlineClose} from "react-icons/md";
+import {enableBodyScroll} from "body-scroll-lock";
 
-const NavItems = ({onMobileMenu, handleMobileMenu}) => {
+const NavItems = ({onMobileMenu, handleMobileMenu, setMobileMenuVisible}) => {
     const [dropdownMobile, setDropdownMobile] = useState(false)
 
     const handleDropdownMobile = () => {
@@ -28,7 +29,11 @@ const NavItems = ({onMobileMenu, handleMobileMenu}) => {
                         )
                         :
                         (
-                            <NavLink to={item.path} className="nav__link">{item.name}</NavLink>
+                            <NavLink to={item.path} className="nav__link"
+                                     onClick={() => {
+                                         setMobileMenuVisible(false)
+                                         enableBodyScroll(document)
+                                     }}>{item.name}</NavLink>
                         )
                     }
                 </li>

@@ -50,6 +50,10 @@
     font-weight: 600;
     font-family: $font-headings;
     text-align: center;
+
+    @include media-breakpoint-down(md) {
+      font-size: 22px;
+    }
   }
 
   &__close {
@@ -62,6 +66,10 @@
 
   &__container {
     width: 700px;
+
+    @include media-breakpoint-down(md) {
+      padding: 0 20px;
+    }
   }
 
   &__form {

@@ -1,17 +1,24 @@
 import React, {useState} from 'react'
-import {AiOutlineHeart} from "react-icons/ai";
+import {AiFillHeart, AiOutlineHeart} from "react-icons/ai";
 import {Link, useNavigate} from "react-router-dom";
 import ReviewsStars from "../ReviewsStars/ReviewsStars";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../store/cartSlice";
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import {AuthUtils} from "../../utils/authUtils";
+import UserService from "../../services/userService";
+import {setUser} from "../../store/usersSlice";
+import {routes} from "../../router/routes";
 
 const ProductDetails = ({product}) => {
     const [quantity, setQuantity] = useState(1);
     const [mainImage, setMainImage] = useState(0)
     const dispatch = useDispatch()
 
+    const {user} = useSelector(state => state.usersStore)
+
+    const navigate = useNavigate()
 
     const increaseQuantity = () => {
         setQuantity(quantity + 1);
@@ -53,6 +60,23 @@ const ProductDetails = ({product}) => {
                 </button>
             );
         });
+    }
+
+    const addFavoriteHandler = () => {
+        AuthUtils.isLogged() ? (
+                UserService.addToFavorite({productId: product._id, userId: user._id})
+                    .then(res => dispatch(setUser(res.data)))
+                    .catch(err => console.log(err))
+            )
+            :
+            navigate(routes.AUTH.path)
+
+    }
+
+    const removeFavoriteHandler = () => {
+        UserService.removeFromFavorite({productId: product._id, userId: user._id})
+            .then(res => dispatch(setUser(res.data)))
+            .catch(err => console.log(err))
     }
 
     const addToCartHandler = () => {
@@ -129,10 +153,18 @@ const ProductDetails = ({product}) => {
                                 onClick={addToCartHandler}>
                             Add to cart
                         </button>
+                        
+                        {
+                            user?.favorites?.includes(product?._id) ?
+                                <button type="button" onClick={removeFavoriteHandler} className="product__favorite">
+                                    <AiFillHeart/>
+                                </button>
+                                :
+                                <button type="button" onClick={addFavoriteHandler} className="product__favorite">
+                                    <AiOutlineHeart/>
+                                </button>
+                        }
 
-                        <button type="button" className="product__favorite">
-                            <AiOutlineHeart/>
-                        </button>
                     </div>
 
                     <div className="product__categories">

@@ -3,6 +3,7 @@ import CartService from "../../services/cartService";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useSearchParams} from "react-router-dom";
 import {clearCart} from "../../store/cartSlice";
+import {BiMessageSquareError} from "react-icons/bi";
 
 
 const ConfirmedOrderPage = () => {
@@ -86,6 +87,19 @@ const ConfirmedOrderPage = () => {
                         isSuccess ?
                             <div className="order__wrapper">
                                 <h3 className="order__subtitle">Your order is confirmed.</h3>
+                                <div className="checkout__disclaimer">
+                            <span className="checkout__exclaimer">
+                                <BiMessageSquareError/>
+                            </span>
+                                    <p className="checkout__explanation">Disclaimer, this is for developer purposes
+                                        only. No
+                                        real
+                                        items will be sold. Please do not use real credit card for payments, only Stripe
+                                        test
+                                        cards, which can be found <a
+                                            href="https://stripe.com/docs/testing#international-cards" target="_blank"
+                                            rel="noreferrer">here.</a></p>
+                                </div>
                                 <div className="order__details">
                                     <div className="order__checkout">
                                         <h3 className="order__subtitle">Summary:</h3>

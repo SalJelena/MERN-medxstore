@@ -11,7 +11,8 @@ const ErrorPage = () => {
                     <div className="error__inner">
                         <h2 className="error__title">Sorry, page not found.</h2>
                         <span className="error__number">404</span>
-                        <Link to="/" className="button button--rounded button--secondary">Go to Home Page</Link>
+                        <Link to="/" className="button button--rounded button--secondary error__btn">Go to Home
+                            Page</Link>
                     </div>
                 </div>
             </div>

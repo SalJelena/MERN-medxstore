@@ -4,12 +4,41 @@
   max-width: 250px;
   margin-right: 20px;
 
+  &__filters {
+    height: 100%;
+
+    @include media-breakpoint-down(sm) {
+      height: 0;
+      margin-top: 20px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.4s ease;
+    }
+  }
+
+  &__filters--active {
+    @include media-breakpoint-down(sm) {
+      height: 100%;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
   &__form {
     margin-bottom: 50px;
     display: flex;
     border: 1px solid #dadada;
 
     @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+  }
+
+  &__btn-mobile {
+    display: none;
+
+    @include media-breakpoint-down(sm) {
+      display: block;
       width: 100%;
     }
   }
