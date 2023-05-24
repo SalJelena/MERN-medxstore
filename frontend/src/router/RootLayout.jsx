@@ -1,4 +1,4 @@
-import {Outlet} from "react-router-dom"
+import {Outlet, ScrollRestoration} from "react-router-dom"
 import axios from "axios";
 import {LS_CART, LS_TOKEN, LS_USER} from "../config/configVars";
 import {useEffect, useState} from "react";
@@ -19,7 +19,7 @@ function RootLayout() {
     const [isFinish, setIsFinish] = useState(false);
 
     useEffect(() => {
-        
+
         if (localStorage.hasOwnProperty(LS_USER)) {
             let user = JSON.parse(localStorage.getItem(LS_USER))
             dispatch(restoreUser(user))
@@ -36,6 +36,7 @@ function RootLayout() {
 
     return isFinish && (
         <>
+            <ScrollRestoration/>
             <Outlet/>
         </>
     )

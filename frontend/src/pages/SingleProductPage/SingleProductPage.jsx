@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import ProductService from "../../services/productsService";
-import {useParams} from "react-router-dom";
+import {ScrollRestoration, useParams} from "react-router-dom";
 import ProductDetails from "../../components/ProductDetails/ProductDetails";
 import LatestProducts from "../../components/LatestProducts/LatestProducts";
 import bgImage from "../../assets/images/06.jpg"
