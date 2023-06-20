@@ -128,7 +128,7 @@ const Register = ({setSelectedTab}) => {
                         Password {showError("password")}
                     </label>
                     <input
-                        type="text"
+                        type={passwordType}
                         name="password"
                         id="password"
                         className="auth__input"

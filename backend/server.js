@@ -25,7 +25,8 @@ app.listen(4000, () => {
     console.log("Server running...");
 });
 
-
+//TO DO
+// - azurirati slike i podatke
 // CategoryModel.insertMany(fakeCategories)
 // .then(res => console.log('Data inserted'))
 
